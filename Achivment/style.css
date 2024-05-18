@@ -272,44 +272,44 @@ p {
 
 
 /* القسم الرابع الملخص */
-
-/* تنسيق المربعات */
-#Explore {
+ /* تنسيق المربعات */
+ #Explore {
     order: 4;
     margin: 30px;
     display: flex;
-    /* grid-template-columns: 1fr 1fr; /* عرض عمودين 
-    gap: 10px; */
+    gap: 10px; /* إضافة الفجوة بين الأعمدة */
 }
 
 .left3 {
-    width: 70%; /* يأخذ عرض 70% من الشاشة */
+    width: 75%; /* يأخذ عرض 75% من الشاشة */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* عرض عمودين أو ثلاثة حسب الشاشة */
     gap: 10px;
 }
 
 .right3 {
-    width: 20%; /* يأخذ عرض 30% من الشاشة */
+    width: 25%; /* يأخذ عرض 25% من الشاشة */
     display: block;
-
-    padding: 30px;
-
+    position: -webkit-sticky; /* لدعم المتصفحات التي تستخدم محرك WebKit */
+    position: sticky;
+    top: 0; /* اجعل القائمة تبدأ من أعلى الشاشة */
+    background-color: white; /* يمكنك تعديل الخلفية حسب تصميمك */
+    z-index: 1000; /* تأكد من أن العنصر يظهر فوق العناصر الأخرى */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 20px); /* تعيين ارتفاع ثابت للقائمة */
+    overflow-y: auto; /* إضافة خاصية التمرير العمودي */
 }
 
-
 .box {
-    width: 200px;
+    width: 150px;
     height: fit-content;
     align-items: center; 
     justify-content: center;
     padding: 10px;
     text-align: center;
-    /* background-color: #fff;  */
-
     cursor: pointer; /* تحويل المؤشر إلى يد عند التحريك فوقه */
 }
-
 
 .box.clicked {
     border-radius: 5px;
@@ -325,7 +325,6 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 20px;
 }
-
 
 .rectangle {
     width: 330px;

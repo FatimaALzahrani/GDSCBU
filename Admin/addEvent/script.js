@@ -47,7 +47,7 @@ function addEvent() {
     var type = document.getElementById('type').value;
     
     // Validate required fields
-    var requiredFields = ["name", "description", "img", "keyword", "type", "link", "location", "date_start", "date_end", "month", "monthN", "day", "time_start", "time_end", "year"];
+    var requiredFields = ["name", "description", "img", "keyword", "type", "link", "location", "date_start", "date_end", "month", "monthN", "day", "time_start", "time_end", "year","url"];
 
     for (var i = 0; i < requiredFields.length; i++) {
         var fieldName = requiredFields[i];

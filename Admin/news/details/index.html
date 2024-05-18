@@ -26,10 +26,10 @@
             </div>
             <div id="o_shared_blocks" class="oe_unremovable"></div>
         </main>
-        <button id="saveChangesBtn"  style="background-color: rgb(0, 139, 113);color: #fff;"  >حفظ التعديلات</button>
+        <button id="saveChangesBtn" style="background-color: rgb(0, 139, 113);color: #fff;">حفظ التعديلات</button>
 
-<!-- زر حذف الجدول -->
-<button id="deleteTableBtn" style="background-color: darkred;color: #fff;" >حذف الجدول</button>
+        <!-- زر حذف الجدول -->
+        <button id="deleteTableBtn" style="background-color: darkred;color: #fff;">حذف الجدول</button>
         <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
             <div id="footer" class="oe_structure oe_structure_solo">
                 <section class="s_text_block" data-snippet="s_text_block" data-name="Text"
@@ -253,8 +253,7 @@
                                                         </a>
                                                 </div>
                                                 </section>
-                                                <label>لتعديل رابط الخبر : </label>
-                                            <input type="text" id="url" name="url" value="${event.url}"  />
+                                                </div>
                                             <br>
                                             <label>رابط اليوتيوب: </label>
                                             <input type="text" id="linkYoutube" name="linkYoutube" value="${event.linkYoutube}"  />
@@ -285,7 +284,7 @@
                                                 <option value="يوم عالمي">يوم عالمي</option>
                                             </select>
                                             <br>
-                                            <label for="url">  رابط تسجيل الدورة ان وجد</label>
+                                            <label for="url">  رابط تويتر/رابط تسجيل الدورة ان وجد</label>
                                             <input type="text" id="url" name="url" value="${event.url}">
                                             <br>
                                             <label for="month">الشهر اسما</label>
@@ -364,18 +363,14 @@
                 eventDetailsContainer.innerHTML = eventDetailsHTML;
                 eventDetailsContainer.innerHTML = eventDetailsHTML;
                 const speakerSection = document.getElementById('podcast');
-            if (event.type!='بودكاست تِقن' ) {
-                speakerSection.style.display = 'none'; // إخفاء القسم
-            }
-        const AgendaSection = document.getElementById('url');
-            if (event.type=='بودكاست تِقن' || event.url.trim() === '') {
-                AgendaSection.style.display = 'none'; // إخفاء القسم
-            }
-            const url = document.getElementById('p');
-            if (event.type=='بودكاست تِقن' || event.url.trim() === '') {
-                url.style.display = 'none'; // إخفاء القسم
-            }
-            
+                if (event.type != 'بودكاست تِقن') {
+                    speakerSection.style.display = 'none'; // إخفاء القسم
+                }
+                const AgendaSection = document.getElementById('linkYoutube');
+                if (event.type == 'بودكاست تِقن' || event.linkYoutube.trim() === '') {
+                    AgendaSection.style.display = 'none'; // إخفاء القسم
+                }
+
             }
         }
     </script>

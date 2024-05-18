@@ -72,10 +72,10 @@ function displayEvents2(eventsData) {
         // يمكنك استخدام الشروط للتحقق من تطابق البحث مع الفعالية
         if (searchInput.value === '' || event.name.includes(searchInput.value) || event.type.includes(searchInput.value)|| event.description.includes(searchInput.value)){
             if((filterDropdown.value==='all') || (filterDropdown.value==='this-month' && event.monthN == currentMonth && event.year == currentYear) ||   (filterDropdown.value === 'upcoming' && isEventComing(event)) ||  (filterDropdown.value === 'past' && isEventPast(event))) {
-                if((typeDropdown.value==='all') || (typeDropdown.value === 'Teqn' && event.type === 'بودكاست تِقن')||(typeDropdown.value === 'Class' && event.type === 'دورة') ||( typeDropdown.value === 'Information' && event.type ==='معلومة الجمعة' )||(typeDropdown.value==='About' && event.type==='عن النادي')
-                || (typeDropdown.value === 'معسكر' && event.type === 'معسكر')||(typeDropdown.value === 'سبيس' && event.type === 'سبيس') ||( typeDropdown.value === 'فعالية' && event.type ==='فعالية' )||(typeDropdown.value==='مسابقة' && event.type==='مسابقة')
-            ||(typeDropdown.value === 'ورشة عمل' && event.type === 'ورشة عمل')||(typeDropdown.value === 'مقالة' && event.type === 'مقالة') ||( typeDropdown.value === 'يوم عالمي' && event.type ==='يوم عالمي' )){
-                    var template= getData(event);
+                if ((typeDropdown.value === 'all') || (typeDropdown.value === 'Teqn' && event.type === 'بودكاست تِقن') || (typeDropdown.value === 'Class' && event.type === 'دورة') || (typeDropdown.value === 'Information' && event.type === 'معلومة الجمعة') || (typeDropdown.value === 'About' && event.type === 'عن النادي')
+                    || (typeDropdown.value === 'معسكر' && event.type === 'معسكر') || (typeDropdown.value === 'سبيس' && event.type === 'سبيس') || (typeDropdown.value === 'فعالية' && event.type === 'فعالية') || (typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')
+                    || (typeDropdown.value === 'ورشة عمل' && event.type === 'ورشة عمل') || (typeDropdown.value === 'مقالة' && event.type === 'مقالة') || (typeDropdown.value === 'يوم عالمي' && event.type === 'يوم عالمي') || (typeDropdown.value === 'تغطية' && event.type === 'تغطية') || (typeDropdown.value === 'تهنئة' && event.type === 'تهنئة')) {
+                        var template= getData(event);
                     repeatedCode += template;
                     count++;
                 }
@@ -196,6 +196,7 @@ function getData(event) {
     if(event.type==='اخرى')
         template = template.replace(`<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 ${tagColorClass}">${event.type}</span>`,
     `<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 ${tagColorClass}">${event.type2}</span>`);
+    template = template.replace("سبيس","مساحة");
 
         return template;
     }

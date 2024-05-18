@@ -209,6 +209,8 @@ function getData(event) {
 
     template = template.replace(`<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</span>`,
                                 `<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 ${tagColorClass}">${event.type}</span>`);
+                                template = template.replace("سبيس","مساحة");
+
         return template;
 }
 
