@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="container">
+        <h2> إضافة خبر جديد 🔈</h2>
+        <form id="eventForm">
+            <label for="name"> عنوان الخبر</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description"> الوصف المبسط</label>
+            <textarea id="description" name="description" required></textarea>
+
+            
+            <label for="description2"> الوصف المفصل ان لزم وتنسيقه بhtml ,css </label>
+            <textarea id="description2" name="description2"></textarea>
+
+            <label for="img"> رابط الصورة </label>
+            <a href="https://postimages.org/" target="_blank">رابط مساعد لتحويل لرابط مباشر نختار</a>
+            <br>
+            <p>رابط صورة لوقو بودكاست تقن</p>
+            <p  id="txt">https://i.postimg.cc/tJPy53Cr/image.png</p>
+<br>
+            <input type="text" id="img" name="img" required placeholder="التاكد من ان الصورة تنتهي ب .png , .jpg ..">
+
+            <label for="keyword">كلمة رئيسية </label>
+            <input type="text" id="keyword" name="keyword" required>
+
+            <label for="type"> اختر نوع الخبر / الفعالية</label>
+            <select id="type" name="type">
+                <option value="اخرى">غير ذلك يُذكر بالاسفل</option>
+                <option value="بودكاست تِقن">بودكاست تِقن</option>
+                <option value="معلومة الجمعة">معلومة الجمعة</option>
+                <option value="عن النادي">عن النادي</option>
+                <option value="معسكر">معسكر</option>
+                <option value="سبيس">سبيس</option>
+                <option value="فعالية">فعالية</option>
+                <option value="مسابقة">مسابقة</option>
+                <option value="ورشة عمل">ورشة عمل</option>
+                <option value="مقالة">مقالة</option>
+                <option value="دورة">دورة</option>
+                <option value="يوم عالمي">يوم عالمي</option>
+            </select>
+            <label for="type2"> اكتب نوع الخبر في حال اخترت غير ذلك</label>
+            <input type="text" id="type2" name="type2" >
+
+
+            <label for="linkYoutube">  رابط يوتيوب ان وجد</label>
+            <input type="text" id="linkYoutube" name="linkYoutube" >
+
+            <label for="linkSound">  رابط ساوند كلاود للبودكاست</label>
+            <input type="text" id="linkSound" name="linkSound" >
+
+
+            <label for="url">رابط الخبر</label>
+            <input type="text" id="url" name="url" required >
+
+            <label for="date_start"> تاريخ النشر</label>
+            <input type="text" id="date_start" name="date_start" placeholder="الاثنين، 24 ديسمبر 2023" required>
+
+            <label for="month">الشهر اسما</label>
+            <input type="text" id="month" name="month" placeholder="ديسمبر" required>
+
+            <label for="monthN"> الشهر رقما</label>
+            <input type="text" id="monthN" name="monthN" placeholder="12" required>
+                        
+            <label for="day">اليوم</label>
+            <input type="text" id="day" name="day" placeholder="16" required>
+
+            <label for="year">السنة</label>
+            <input type="text" id="year" name="year" placeholder="2023" required>
+
+            <button type="button" onclick="addEvent()">إضافة الخبر</button>
+        </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

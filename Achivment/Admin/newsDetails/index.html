@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدورة</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon" href="google.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تفاصيل الدورة">
+    <meta property="og:site_name" content="GCDBU">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q4QQ3LLRQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q4QQ3LLRQ');
+</script>
+</head>
+
+<body>
+    <nav>
+        <!-- <label class="logo">GDSCBU</label> -->
+        <ul>
+            <li><img src="image.png" width="70px"></li>
+            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Club_BU/Admin/#Home">الرئيسية</a></li>
+            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Club_BU/Admin/#About">إحصائيات</a></li>
+            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Club_BU/Admin/#Explore">تصفح</a></li>
+            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Club_BU/Admin/News.html">الأخبار</a></li>
+            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Club_BU/Admin/Event.html">الفعاليات</a></li>
+        </ul>
+        <label id="icon">
+            <li class="fas fa-bars"></li>
+        </label>
+    </nav>
+    
+    <div id="wrapwrap" class=" o_rtl  ">
+        <main>
+            <div id="wrap" class="o_wevent_event js_event d-flex flex-column h-100 ">
+            </div>
+            <div class="oe_structure oe_empty" id="oe_structure_website_event_layout_1" data-editor-sub-message=" ">
+            </div>
+            <div id="o_shared_blocks" class="oe_unremovable"></div>
+        </main>
+        <footer>
+            <div class="left2">
+            <div class="social-links">
+                <a href="https://twitter.com/GDSCAlbaha" class="s_social_media_twitter grid-item" target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/gdsc-university-of-al-baha/posts/?feedView=all"
+                    class="s_social_media_linkedin grid-item" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/@GDSC_Albaha" class="s_social_media_youtube grid-item" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div></div>
+            <div class="right2">
+            <div class="logo">
+                <img src="google.png" />
+            </div>
+            <div class="rights">
+                <p>جميع الحقوق محفوظة لنادي قوقل للطلبة المطورين بجامعة الباحة</p>
+            </div>
+        </div>
+        </footer>
+    
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCayCRh3KS2ovE317Q3hPigFQx7MV9wptc",
+            authDomain: "gdsc-12.firebaseapp.com",
+            projectId: "gdsc-12",
+            storageBucket: "gdsc-12.appspot.com",
+            messagingSenderId: "190878539822",
+            appId: "1:190878539822:web:1bf4d8550c05ab08987fbf",
+            measurementId: "G-ZRDX984JGY"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // استرجاع اسم الدورة من معلمة الاستعلام في عنوان URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventName = urlParams.get('name');
+
+        // قم بالرجوع إلى جدول "events" في Firebase Realtime Database
+        const eventsRef = firebase.database().ref('news');
+
+        // استمع لتغييرات الجدول
+        eventsRef.on('value', function (snapshot) {
+            const eventsData = snapshot.val();
+
+            // الآن يمكنك البحث عن الدورة التي تحمل نفس الاسم
+            if (eventsData) {
+                for (const eventId in eventsData) {
+                    const event = eventsData[eventId];
+                    if (event.name === eventName) {
+                        // تم العثور على الدورة - يمكنك عرض التفاصيل هنا
+                        displayEventDetails(event);
+                        break;
+                    }
+                }
+            }
+        });
+
+        // عرض تفاصيل الدورة
+        function displayEventDetails(event) {
+            const eventDetailsContainer = document.getElementById('wrap');
+
+            if (eventDetailsContainer) {
+                // قم بإنشاء عناصر HTML أو استخدامها لعرض تفاصيل الدورة
+                // على سبيل المثال:
+                const eventDetailsHTML = `
+                <center>
+                    <div class="h-100" name="event" itemscope="itemscope" itemtype="http://schema.org/Event">
+                        <section class="h-100">
+                            <div class="container overflow-hidden h-100 pb-5">
+                                <div class="row h-100">
+                                    <div class="col">
+                                        <div id="o_wevent_event_main_col">
+                                            <div data-name="الغلاف " data-use_filters="True" data-use_text_align="True"
+                                                data-res-model="event.event" data-res-id="1"
+                                                class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3   ">
+                                                <div style="background-image: url('${event.img}');"
+                                                    class="o_record_cover_component o_record_cover_image "></div>
+                                                <div class="o_record_cover_component o_record_cover_filter oe_black"
+                                                    style="opacity: 0.4;"></div>
+
+                                                <div     class="container d-flex flex-column flex-grow-1 justify-content-around">
+                                                    <div class="o_wevent_event_title p-3 my-5">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="mt-4" itemprop="description">
+                                                <section class="s_text_block">
+                                                    <h5>${event.name} </h5>
+                                                    <p>${event.description}</p>
+                                                    <p>${event.description2}</p>
+                                                </section>
+                                            </div>
+
+                                            <div class="mt-4" itemprop="description" id="podcast">
+                                                <section class="s_text_block">
+                                                    <a href=${event.linkSound}><img src="soundcloud.png" height="100dp" ></a>
+                                                    <a href=${event.linkYoutube}><img src="youtube.png" height="100dp" alt=""  style="margin-right: 20px;"></a>
+                                                </section>
+                                            </div>
+                                            <div class="mt-4" itemprop="description id="url">
+                                                <section class="s_text_block">
+                                                    <div  class="d-flex d-lg-block flex-wrap justify-content-between align-items-center pb-3 border-bottom">
+                                                    <div
+                                                        class="d-flex flex-wrap justify-content-between align-items-center w-100 mb-3">
+                                                        <h4 class="mb-0">&nbsp;<br></h4>
+                                                    </div>
+                                                    <a id="p" href=${event.url}>
+                                                    <button type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modal_ticket_registration"
+                                                        class="btn btn-primary " target="blank">الرابط</button>
+                                                        </a>
+                                                </div>
+                                                </section>
+                                            </div>
+                                            <div class="mt-4" itemprop="description id="url">
+                                                <section class="s_text_block">
+                                                    <div  class="d-flex d-lg-block flex-wrap justify-content-between align-items-center pb-3 border-bottom">
+                                                    <div
+                                                        class="d-flex flex-wrap justify-content-between align-items-center w-100 mb-3">
+                                                        <h4 class="mb-0">&nbsp;<br></h4>
+                                                    </div>
+                                                    <a id="p"  href="details/index.html?name=${encodeURIComponent(event.name)}">
+                                                    <button type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modal_ticket_registration"
+                                                        class="btn btn-primary " target="blank">تعديل</button>
+                                                        </a>
+                                                </div>
+                                                </section>
+                                            </div>
+                                            <div class="mt-4" itemprop="description">
+                                                <section class="s_text_block">
+                                                    <div class="o_wevent_sidebar_block border-bottom pb-3 my-3">
+                                                     <h6 class="o_wevent_sidebar_title text-muted text-uppercase">تاريخ النشر</h6>
+                                                       <div class="d-flex">
+                                                          <h6 class="my-1" datetime="2023-12-24 04:00:00"> ${event.date_start}</h6>
+                                                     </div>
+                                                 </div>
+                                                </section>
+                                            </div>
+
+                                            <div class="mt-4" itemprop="description">
+                                                <section class="s_text_block">
+                                                    <div class="o_wevent_sidebar_block">
+                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">المشاركة
+                                                </h6>                                                        <center>
+
+                                                <div data-snippet="s_share"
+                                                    class="s_share text-start o_no_link_popover o_wevent_sidebar_social mx-n1">
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}"
+                                                    target="_blank" class="s_share_linkedin o_wevent_social_link">
+                                                    <i class="fa fa-linkedin "></i>
+                                                </a>
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}"
+                                                    target="_blank" class="s_share_facebook o_wevent_social_link">
+                                                    <i class="fa fa-facebook "></i>
+                                                </a>
+                                                <a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&amp;media={media}&amp;description=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}"
+                                                    target="_blank" class="s_share_pinterest o_wevent_social_link">
+                                                    <i class="fa fa-pinterest "></i>
+                                                </a>
+                                                <a href="https://wa.me/?text=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}"
+                                                    target="_blank" class="s_share_whatsapp o_wevent_social_link">
+                                                    <i class="fa fa-whatsapp "></i>
+                                                </a>
+                                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}&amp;url=${encodeURIComponent(window.location.href)}"
+                                                    target="_blank" class="s_share_twitter o_wevent_social_link">
+                                                    <i class="fa fa-twitter "></i>
+                                                </a>
+                                                <a href="mailto:?body=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}&amp;subject=نادي قوقل جامعة الباحة"
+                                                    class="s_share_email o_wevent_social_link">
+                                                    <i class="fa fa-envelope "></i>
+                                               </a>
+
+                                                </div>
+                                                </center>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>                                           
+                                </div>
+                            </div>
+                        </section>
+                  </div>
+             </center>
+
+                             `;
+
+                eventDetailsContainer.innerHTML = eventDetailsHTML;
+                const speakerSection = document.getElementById('podcast');
+            if (event.type!='بودكاست تِقن' ) {
+                speakerSection.style.display = 'none'; // إخفاء القسم
+            }
+        const AgendaSection = document.getElementById('url');
+            if (event.type=='بودكاست تِقن' || event.url.trim() === '') {
+                AgendaSection.style.display = 'none'; // إخفاء القسم
+            }
+            const url = document.getElementById('p');
+            if (event.type=='بودكاست تِقن' || event.url.trim() === '') {
+                url.style.display = 'none'; // إخفاء القسم
+            }
+            }
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الدورة</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="image/x-icon" rel="shortcut icon"
+        href="=google.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="معسكر Devfast">
+    <meta property="og:site_name" content="GCDBU">
+    <link type="image/x-icon" rel="shortcut icon"
+        href="google.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link type="text/css" rel="stylesheet" href="style.css"></head>
+
+<body>
+        <div id="wrapwrap" class=" o_rtl  ">
+            <main>
+                <div id="wrap" class="o_wevent_event js_event d-flex flex-column h-100 ">
+                    </div>
+
+
+
+            <div class="oe_structure oe_empty" id="oe_structure_website_event_layout_1"
+            data-editor-sub-message=" "></div>
+            <div id="o_shared_blocks" class="oe_unremovable"></div>
+</main>
+<div class=" grid-container">
+<button id="showBtn"  class='btn grid-item'style="background-color: rgb(25, 0, 139);color: #fff;"  >شكلها عند المستخدم</button>
+
+                    <!-- زر حفظ التعديلات -->
+                        <button id="saveChangesBtn" class='btn grid-item' style="background-color: rgb(0, 139, 113);color: #fff;"  >حفظ التعديلات</button>
+
+<!-- زر حذف الجدول -->
+<button id="deleteTableBtn" class='btn grid-item' style="background-color: darkred;color: #fff;" >حذف الجدول</button>
+</div>
+<br>
+<footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc ">
+    <div id="footer" class="oe_structure oe_structure_solo">
+        <section class="s_text_block" data-snippet="s_text_block" data-name="Text"
+            style="background-image: none;">
+            <div class="container">
+                <div class="grid-container2 align-items-center">
+                    <div class="grid-item">
+                        <a href="mailto:gdscbu2022@gmail.com" class="o_footer_logo logo" data-bs-original-title="" title="">
+                            <img src="google.png" height="50dp" alt="">
+                        </a>
+                    </div>  
+                    <div class="col-lg-3 pt16 pb16 o_colored_level">
+                        <div class="s_social_media o_not_editable no_icon_color text-center grid-container"
+                            data-snippet="s_social_media" data-name="Social Media">
+                            <h5 class="s_social_media_title d-none">تابعنا </h5>
+                            <a href="https://twitter.com/GDSCAlbaha" class="s_social_media_twitter grid-item"
+                                target="_blank">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/gdsc-university-of-al-baha/posts/?feedView=all"
+                                class="s_social_media_linkedin grid-item" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@GDSC_Albaha" class="s_social_media_youtube grid-item"
+                                target="_blank">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-sm text-center text-sm-start text-muted">
+                    <span class="o_footer_copyright_name me-2">حقوق النشر محفوظة لنادي قوقل للطلبة المطورين
+                        بجامعة الباحة</span>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCayCRh3KS2ovE317Q3hPigFQx7MV9wptc",
+            authDomain: "gdsc-12.firebaseapp.com",
+            projectId: "gdsc-12",
+            storageBucket: "gdsc-12.appspot.com",
+            messagingSenderId: "190878539822",
+            appId: "1:190878539822:web:1bf4d8550c05ab08987fbf",
+            measurementId: "G-ZRDX984JGY"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // استرجاع اسم الدورة من معلمة الاستعلام في عنوان URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventName = urlParams.get('name');
+
+        // قم بالرجوع إلى جدول "events" في Firebase Realtime Database
+        const eventsRef = firebase.database().ref('events');
+
+        // استمع لتغييرات الجدول
+        eventsRef.on('value', function (snapshot) {
+            const eventsData = snapshot.val();
+
+            // الآن يمكنك البحث عن الدورة التي تحمل نفس الاسم
+            if (eventsData) {
+                for (const eventId in eventsData) {
+                    const event = eventsData[eventId];
+                    if (event.name === eventName) {
+                        // تم العثور على الدورة - يمكنك عرض التفاصيل هنا
+                        displayEventDetails(event);
+                        break;
+                    }
+                }
+            }
+        });
+                
+      
+
+
+        // عرض تفاصيل الدورة
+        function displayEventDetails(event) {
+            const eventDetailsContainer = document.getElementById('wrap');
+
+            if (eventDetailsContainer) {
+                const eventDetailsHTML = `
+                    <div class="h-100" name="event" itemscope="itemscope" itemtype="http://schema.org/Event">
+                        <section class="h-100">
+                            <div class="container overflow-hidden h-100 pb-5">
+                                <div class="row h-100">
+                                    <div class="col">
+                                        <div class="container my-3">
+                                            <a href="javascript:history.back();">
+                                                <i class="fa fa-chevron-left me-2"></i>
+                                                <span>العودة  </span>
+                                            </a>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div
+                                                class="container d-flex flex-wrap flex-lg-nowrap justify-content-between align-items-center">
+                                                <h6 class="flex-grow-1 mb-0"><input type="text" id="name" name="name" value="${event.name}" /></h6>
+                                                <div
+                                                    class="d-flex flex-grow-1 align-items-center justify-content-end gap-2">
+
+                                                </div>
+                                            </div>
+    
+
+                                        </div>     
+                                       
+                                        <div id="o_wevent_event_main_col">
+                                            <div data-name="الغلاف " data-use_filters="True" data-use_text_align="True"
+                                                data-res-model="event.event" data-res-id="1"
+                                                class="o_record_cover_container d-flex flex-column h-100 o_colored_level o_cc o_cc3   ">
+                                                <div style="background-image: url('${event.img}');"
+                                                    class="o_record_cover_component o_record_cover_image "></div>
+                                                <div class="o_record_cover_component o_record_cover_filter oe_black"
+                                                    style="opacity: 0.4;"></div>
+
+                                                <div
+                                                    class="container d-flex flex-column flex-grow-1 justify-content-around">
+                                                    <div class="o_wevent_event_title p-3 my-5">
+                                                        <h1 class="o_wevent_event_name" itemprop="name"
+                                                            placeholder="عنوان الفعالية "></h1>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <label>لتعديل الصورة : </label>
+                                            <input type="text" id="img" name="img" class="full" value="${event.img}"  />
+                                            <div class="mt-4" itemprop="description">
+                                                <section class="s_text_block">
+                                                    <h5>انضم إلينا في ${event.name} </h5>
+                                                    <p>
+                                                
+                                                    <textarea id="description" name="description" class="full max">${event.description}</textarea></p>
+                                                </section>
+                                            </div>
+                                            <div class="mt-4" itemprop="description" >
+                                                <section class="s_text_block">
+                                                    <h5>الأجندة : </h5>
+                                                    <p>
+                                                    <textarea id="Agenda" name="Agenda" class="full max" >${event.Agenda}</textarea></p>
+                                                </section>
+                                            </div>
+                                            <div class="mt-4" itemprop="description">
+                                                <section class="s_text_block">
+                                                    <h5>المُقدم : </h5> 
+                                                    <p><textarea id="Speaker" name="Speaker" class="full">${event.Speaker}</textarea> </p>
+                                                </section>
+                                            </div>
+                                            <b> تعديلات إضافية معروضة برا</b>
+                                             <label for="keyword">كلمة رئيسية </label>
+                                            <input type="text" id="keyword" name="keyword" value="${event.keyword}">
+                                            <br>
+
+                                            <label for="type"> اختر نوع الفغاليه </label>
+                                            <select id="type" name="type" value="${event.type}">
+                                                <option value="${event.type}">${event.type}</option>
+                                                <option value="بودكاست تِقن">بودكاست تِقن</option>
+                                                <option value="معلومة الجمعة">معلومة الجمعة</option>
+                                                <option value="عن النادي">عن النادي</option>
+                                                <option value="معسكر">معسكر</option>
+                                                <option value="سبيس">سبيس</option>
+                                                <option value="فعالية">فعالية</option>
+                                                <option value="مسابقة">مسابقة</option>
+                                                <option value="ورشة عمل">ورشة عمل</option>
+                                                <option value="مقالة">مقالة</option>
+                                                <option value="دورة">دورة</option>
+                                                <option value="يوم عالمي">يوم عالمي</option>
+                                            </select>
+                                            <br>
+
+                                            <label for="url">  رابط تسجيل الدورة ان وجد</label>
+                                            <input type="text" id="url" name="url" value="${event.url}" class="full">
+                                        <br>
+                                            <label for="month">الشهر اسما</label>
+                                            <input type="text" id="month" name="month" value="${event.month}" >
+                                            <br>
+                                            <label for="monthN"> الشهر رقما</label>
+                                            <input type="text" id="monthN" name="monthN" value="${event.monthN}">
+                                                        <br>
+                                            <label for="day">اليوم</label>
+                                            <input type="text" id="day" name="day" value="${event.day}">
+<br>
+                                            <label for="year">السنة</label>
+                                            <input type="text" id="year" name="year" value="${event.year}">
+<br>
+
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="d-lg-flex justify-content-end col-lg-4 col-xl-3 mb-3 mb-lg-0 ">
+                                        <div class="mt-3">
+                                            <div class="container d-lg-block">
+
+                                                <div
+                                                    class="d-flex d-lg-block flex-wrap justify-content-between align-items-center pb-3 border-bottom">
+                                                    <div
+                                                        class="d-flex flex-wrap justify-content-between align-items-center w-100 mb-3">
+                                                        <h4 class="mb-0">&nbsp;<br></h4>
+                                                    </div>
+                                                    <a href=${event.link}>
+                                                    <button type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modal_ticket_registration"
+                                                        class="btn btn-primary w-100">تسجيل</button>
+                                                        </a>
+                                                </div>
+                                                <label for="link"> تعديل فورم التسجيل</label>
+                                                <input type="text" id="link" name="link" class="full" value="${event.link}">
+                                            </div>
+
+                                            <div class="o_wevent_sidebar_block border-bottom pb-3 my-3">
+                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">الوقت
+                                                    والتاريخ </h6>
+                                                <div class="d-flex">
+                                                    <h6 class="my-1" datetime="2023-12-24 04:00:00">
+                                                       
+                                                        <input type="text" id="date_start" name="date_start" value="${event.date_start}" ></h6>
+                                                </div>
+                                                البداية -
+                                                <span data-oe-type="datetime" data-oe-expression="event.date_begin">
+                                                    <input type="text" id="time_start" name="time_start" value="${event.time_start}"/></span>
+                                                (<span>Etc/GMT-3</span>)
+                                                <i class="fa fa-long-arrow-down d-block text-muted mx-3 my-2"
+                                                    style="font-size: 1.5rem"></i>
+                                                <div class="d-flex">
+                                                    <h6 class="my-1">
+                                                        
+                                                        <input type="text" id="date_end" name="date_end" value="${event.date_end}"></h6>
+                                                </div>
+                                                النهاية -
+                                                <span data-oe-type="datetime" data-oe-expression="event.date_end">
+                                                    <input type="text" id="time_end" name="time_end" value="${event.time_end}"/></span>
+                                                (<span>Etc/GMT-3</span>)
+
+                                                <a href="#" role="button" data-bs-toggle="dropdown"
+                                                    class="btn btn-secondary text-bg-secondary dropdown w-100 mt-3">
+                                                    <p class="mb-0"><i class="fa fa-calendar me-2"></i>إضافة إلى التقويم
+                                                    </p>
+                                                </a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item"
+                                                        href="/event/1/ics?action=TEMPLATE&amp;text=%D9%85%D8%B9%D8%B3%D9%83%D8%B1+Devfast&amp;dates=20231224T070000%2F20231225T070000&amp;ctz=Etc%2FGMT-3&amp;details=%D9%85%D8%B9%D8%B3%D9%83%D8%B1+Devfast&amp;location=%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A7%D9%84%D8%A8%D8%A7%D8%AD%D8%A9">iCal/Outlook</a>
+                                                    <a class="dropdown-item" target="_blank"
+                                                        href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=${event.name}&amp;dates=20231224T070000%2F20231225T070000&amp;ctz=Etc%2FGMT-3&amp;details=%D9%85%D8%B9%D8%B3%D9%83%D8%B1+Devfast&amp;location=%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A7%D9%84%D8%A8%D8%A7%D8%AD%D8%A9">Google</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3">
+                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">الموقع
+                                                </h6>
+                                                <h4 class="">
+                                                    <address class="o_portal_address mb-0" itemscope="itemscope"
+                                                        itemtype="http://schema.org/Organization">
+                                                        <div>
+                                                            <span itemprop="name" style="font-size: 20px;">
+                                                                <input type="text" id="location" name="location" class="full" value="${event.location}"></span>
+                                                        </div>
+                                                        <div class="d-flex flex-column gap-2" itemprop="address"
+                                                            itemscope="itemscope"
+                                                            itemtype="http://schema.org/PostalAddress">
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                    </address>
+                                                </h4>
+                                                <div itemprop="location" class="mb-2">
+                                                    <address class="o_portal_address mb-0" itemscope="itemscope"
+                                                        itemtype="http://schema.org/Organization">
+                                                        <div class="css_non_editable_mode_hidden">
+                                                            --<span class="text-muted">جامعة الباحة</span>--
+                                                        </div>
+                                                        <div class="d-flex flex-column gap-2" itemprop="address"
+                                                            itemscope="itemscope"
+                                                            itemtype="http://schema.org/PostalAddress">
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                    </address>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <address class="o_portal_address mb-0" itemscope="itemscope"
+                                                        itemtype="http://schema.org/Organization">
+                                                        <div class="css_non_editable_mode_hidden">
+                                                            --<span class="text-muted">جامعة الباحة</span>--
+                                                        </div>
+                                                        <div class="d-flex flex-column gap-2" itemprop="address"
+                                                            itemscope="itemscope"
+                                                            itemtype="http://schema.org/PostalAddress">
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                    </address>
+                                                </div>
+                                            </div>
+
+                                            <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3">
+                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">منظِّم
+                                                </h6>
+                                                <h4>GCDBU</h4>
+                                                <div itemprop="location">
+                                                    <address class="o_portal_address mb-0" itemscope="itemscope"
+                                                        itemtype="http://schema.org/Organization">
+                                                        <div class="d-flex flex-column gap-2" itemprop="address"
+                                                            itemscope="itemscope"
+                                                            itemtype="http://schema.org/PostalAddress">
+                                                            <div class="d-flex align-items-center gap-1"><i
+                                                                    class="fa fa-envelope fa-fw" role="img"
+                                                                    aria-label="البريد الإلكتروني"
+                                                                    title="البريد الإلكتروني"></i> <span
+                                                                    class="text-break"
+                                                                    itemprop="email">gdscbu2022@gmail.com</span></div>
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                    </address>
+                                                </div>
+                                            </div>
+
+                                            <div class="o_wevent_sidebar_block">
+                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">المشاركة
+                                                </h6>
+                                                <p class="mb-2"><br></p>
+                                                <div data-snippet="s_share"
+                                                    class="s_share text-start o_no_link_popover o_wevent_sidebar_social mx-n1">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://fatimamohammedalzahrani.on.drv.tw/Google/event/"
+                                                        target="_blank" class="s_share_facebook o_wevent_social_link">
+                                                        <i class="fa fa-facebook "></i>
+                                                    </a>
+                                                    <a href="https://twitter.com/intent/tweet?text=لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في ${event.name} ! انصحكم بالانضمام لها&amp;url=https://fatimamohammedalzahrani.on.drv.tw/Google/event/"
+                                                        target="_blank" class="s_share_twitter o_wevent_social_link">
+                                                        <i class="fa fa-twitter "></i>
+                                                    </a>
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://fatimamohammedalzahrani.on.drv.tw/Google/event/"
+                                                        target="_blank" class="s_share_linkedin o_wevent_social_link">
+                                                        <i class="fa fa-linkedin "></i>
+                                                    </a>
+                                                    <a href="https://wa.me/?text=لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في هذه الدورة ! انصحكم بالانضمام لها" target="_blank"
+                                                        class="s_share_whatsapp o_wevent_social_link">
+                                                        <i class="fa fa-whatsapp "></i>
+                                                    </a>
+                                                    <a href="https://pinterest.com/pin/create/button/?url=https://fatimamohammedalzahrani.on.drv.tw/Google/event/&amp;&amp;description=لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في هذه الدورة ! انصحكم بالانضمام لها"
+                                                        target="_blank" class="s_share_pinterest o_wevent_social_link">
+                                                        <i class="fa fa-pinterest "></i>
+                                                    </a>
+                                                    <a href="mailto:?body=لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في ${event.name} ! انصحكم بالانضمام لها&amp;subject=نادي قوقل جامعة الباحة"
+                                                        class="s_share_email o_wevent_social_link">
+                                                        <i class="fa fa-envelope "></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+                             `;
+
+ 
+                eventDetailsContainer.innerHTML = eventDetailsHTML;
+            }
+        }
+
+        document.getElementById('deleteTableBtn').addEventListener('click', function () {
+            eventsRef.on('value', function (snapshot) {
+            const eventsData = snapshot.val();
+
+            if (eventsData) {
+                for (const eventId in eventsData) {
+                    const event = eventsData[eventId];
+                    if (event.name === eventName) {
+            const eventRef = firebase.database().ref('events').child(eventId);
+
+            eventRef.remove();
+
+            alert('تم حذف المدخل الفرعي بنجاح.');
+            window.history.back();
+
+                        break;
+                    }
+                }
+            }
+        });
+        });
+
+        document.getElementById('showBtn').addEventListener('click', function () {
+            var url
+            eventsRef.on('value', function (snapshot) {
+            const eventsData = snapshot.val();
+
+            if (eventsData) {
+                for (const eventId in eventsData) {
+                    const event = eventsData[eventId];
+                    if (event.name === eventName) {
+
+         url = 'Eventdetails/index.html?name='+encodeURIComponent(event.name);
+            break;
+        }
+     }
+}
+});
+// url+=''
+    window.location.href = url;
+});
+
+        document.getElementById('saveChangesBtn').addEventListener('click', function () {
+            var name = document.getElementById('name').value;
+            var description = document.getElementById('description').value;
+            var img = document.getElementById('img').value;
+            var keyword = document.getElementById('keyword').value;
+            var link = document.getElementById('link').value;
+            var location = document.getElementById('location').value;
+            var month = document.getElementById('month').value;
+            var day = document.getElementById('day').value;
+            var time_start = document.getElementById('time_start').value;
+            var time_end = document.getElementById('time_end').value;
+            var year = document.getElementById('year').value;
+
+            var monthN = document.getElementById('monthN').value;
+            var Speaker = document.getElementById('Speaker').value;
+            var Agenda = document.getElementById('Agenda').value;
+            var date_start = document.getElementById('date_start').value;
+            var date_end = document.getElementById('date_end').value;
+            var url = document.getElementById('url').value;
+            var type = document.getElementById('type').value;
+            eventsRef.on('value', function (snapshot) {
+        const eventsData = snapshot.val();
+
+        if (eventsData) {
+            for (const eventId in eventsData) {
+                const event = eventsData[eventId];
+                if (event.name === eventName) {
+                    const eventRef = firebase.database().ref('events').child(eventId);
+                       // استخدم update بدلاً من push إذا كان الهدف هو تحديث بيانات الحدث الحالي
+                       eventRef.update({
+                name: name,
+                description: description,
+                img: img,
+                keyword: keyword,
+                link: link,
+                location: location,
+                month: month,
+                day: day,
+                time_start: time_start,
+                time_end: time_end,
+                year: year,
+                monthN: monthN,
+                Speaker: Speaker,
+                date_start: date_start,
+                date_end: date_end,
+                Agenda: Agenda,
+                type: type,
+                url: url
+            });
+
+            alert('تمت تعديل البيانات بنجاح.');
+            window.location.reload();
+                        break;
+                    }
+                }
+            }
+        });
+        });
+        
+    </script>
+        <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

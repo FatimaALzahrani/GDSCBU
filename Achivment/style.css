@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,700,700i&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* القائمة */
+nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    /* تأكد من تحديد العنصر الأساسي بنوعية position: relative */
+    z-index: 1000;
+}
+
+.item {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* label.logo{
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    padding: 0 100px;
+    line-height: 80px;
+} */
+nav ul {
+    float: right;
+    margin-right: 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 38px;
+    font-family: Rubik;
+    /* text-transform: uppercase; */
+    border: 1px solid transparent;
+    padding: 7px 10px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+a.active,
+a:hover {
+    border: 1px solid rgb(255, 251, 217);
+    transition: .5s;
+}
+
+a.active1 {
+    border: 1px solid rgb(255, 251, 217);
+    border-radius: 20px;
+    transition: .5s;
+}
+
+nav #icon {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    line-height: 80px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width:1650px) {
+
+    nav ul {
+        margin-right: 20px;
+    }
+
+    nav a {
+        font-size: 17px;
+    }
+}
+
+@media (max-width:600px) {
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2f3640;
+        top: 80px;
+        left: -110%;
+        text-align: center;
+        transition: all .5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav li {
+        display: block;
+        margin: 20px 0;
+        line-height: 30px;
+    }
+
+    nav #icon {
+        display: block;
+        margin-top: -25px;
+    }
+
+    nav a {
+        font-size: 17px;
+        color: white;
+    }
+
+    a.active,
+    a:hover {
+        border: none;
+        color: #3498db;
+    }
+
+    nav ul.show {
+        left: 0;
+    }
+
+}
+
+
+/* جملة الترحيب */
+#hello {
+    margin: 90px;
+}
+
+/* تنسيق عام */
+/* 1. التقسيم لنصين */
+.left {
+    width: 50%;
+    float: left;
+    margin-top: -1px;
+    text-align: center;
+}
+
+.right {
+    width: 50%;
+    float: right;
+    margin-top: -1px;
+    text-align: center;
+}
+
+/* الخط والزر */
+body {
+    font-family: Rubik;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#Home {
+    order: 1;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+button {
+    margin-top: -15px;
+    background-color: #3A5268;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Rubik;
+
+}
+
+.start {
+    margin-top: 120px;
+}
+
+.button-with-background:hover {
+    background-color: #f1d070;
+    color: #000;
+}
+
+/* تحريك الدوائر الصفراء */
+.animation-container {
+    position: relative;
+    width: 176px;
+    height: 183px;
+}
+
+.circle1,
+.circle2 {
+    animation: moveAnimation 2s infinite alternate;
+}
+
+@keyframes moveAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+/* احصائيات النادي */
+#About {
+    height: 150px;
+    width: 90%;
+    order: 2;
+    margin-top: -50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h3 {
+    font-size: 29px;
+    font-weight: 600;
+}
+
+#About table {
+    padding-right: 25px;
+    padding-left: 25px;
+    background-color: #f1d070;
+    height: 200px;
+    width: 80%;
+    border-radius: 80px;
+    justify-items: center;
+}
+
+#About td {
+    text-align: center;
+    padding-top: -15px;
+    padding-bottom: 5px;
+    line-height: 0;
+    /* تعيين قيمة line-height */
+
+}
+
+.start {
+    text-align: center;
+}
+
+#About text,
+p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* القسم الثالث How */
+#How {
+    order: 3;
+    margin-top: 200px;
+}
+
+#How h3 {
+    padding: 80px;
+    font-weight: bold;
+}
+
+#How img {
+    height: 300px;
+    width: 300px;
+    margin-right: 20px;
+}
+
+
+/* القسم الرابع الملخص */
+
+/* تنسيق المربعات */
+#Explore {
+    order: 4;
+    margin: 30px;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; /* عرض عمودين 
+    gap: 10px; */
+}
+
+.left3 {
+    width: 70%; /* يأخذ عرض 70% من الشاشة */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* عرض عمودين أو ثلاثة حسب الشاشة */
+    gap: 10px;
+}
+
+.right3 {
+    width: 20%; /* يأخذ عرض 30% من الشاشة */
+    display: block;
+
+    padding: 30px;
+
+}
+
+
+.box {
+    width: 200px;
+    height: fit-content;
+    align-items: center; 
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    /* background-color: #fff;  */
+
+    cursor: pointer; /* تحويل المؤشر إلى يد عند التحريك فوقه */
+}
+
+
+.box.clicked {
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #D9D9D9; /* لون رصاصي */
+}
+
+#Explore2 {
+    align-items: center; 
+    justify-content: center;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 20px;
+}
+
+
+.rectangle {
+    width: 330px;
+    height: 417px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.rectangle img {
+    width: 330px;
+    height: 199px;
+    object-fit: cover;
+}
+
+.description {
+    text-align: center;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.type,
+.time {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.type h5 {
+    border-radius: 20px;
+    width: 100px;
+    padding: 3px;
+    color: white;
+}
+
+.time h5 {
+    border-radius: 20px;
+    width: 100px;
+    padding: 3px;
+    color: white;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+.description {
+    text-align: center;
+    color: #979494;
+   
+}
+
+.description h5 {
+    margin: 0;
+}
+
+.description .title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* .description .detail {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 200px; 
+} */
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* landing */
+.animated-bg {
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%,
+            #edeef1 10%,
+            #f6f7f8 20%,
+            #f6f7f8 100%);
+    background-size: 200% 100%;
+    animation: bgPos 1s linear infinite;
+}
+
+.animated-bg-text {
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0;
+    height: 10px;
+    width: 100%;
+}
+
+@keyframes bgPos {
+    0% {
+        background-position: 50% 0;
+    }
+
+    100% {
+        background-position: -150% 0;
+    }
+}
+
+.slanted-bar {
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(to left bottom, transparent 49.5%, red 50%, transparent 50.5%);
+    z-index: 1;
+    /* تحديد ترتيب الطبقة */
+}
+
+.slanted-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right top, transparent 49.5%, red 50%, transparent 50.5%);
+    z-index: -1;
+}
+
+
+/* التذليل */
+footer {
+    order: 5;
+    background-color: #3A5268;
+    text-align: center;
+    height: 150px;
+    /* margin-top: 150px; */
+}
+
+.social-links {
+    text-align: right;
+    margin: 30px;
+}
+
+.social-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.fa-brands {
+    color: white;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.logo img {
+    display: inline-block;
+    /* margin-top: -150px; */
+}
+
+.rights p {
+    font-size: 10px;
+    /* margin-top: -80px; */
+    color: white;
+    /* margin-bottom: 25px; */
+}
+
+.right2 {
+    float: right;
+    margin-right: 10px;
+}
+
+.left2 {
+    float: left;
+    margin-left: 10px;
+}
+
+
+.anim {
+    opacity: 0;
+    transform: translateY(30px) rotate(0deg);
+    /* تحديد زاوية الدوران بصفر درجة في البداية */
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+
+.anim4 {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.anim5 {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.anim3 {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0) rotate(360deg);
+}
+
+.show4 {
+    opacity: 1;
+    transform: translateX(0);
+    animation-delay: 0.5s;
+}
+
+.show3 {
+    opacity: 1;
+    transform: translateY(0);
+    animation-delay: 1s;
+}
+
+/* Responsive */
+@media (min-width:600px) {
+
+    #Lengthwise {
+        display: none;
+    }
+}
+
+@media (max-width:1650px) {
+    .left {
+        width: 50%;
+    }
+
+    .right {
+        width: 50%;
+    }
+
+    #hello {
+        margin: 30px 30px 50px 50px;
+    }
+
+    #About {
+        height: 150px;
+        width: 100%;
+        order: 2;
+        margin-top: 200px;
+        margin-right: -15px;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    #About text,
+    p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #How {
+        margin-top: 100px;
+    }
+
+    h3 {
+        margin-top: -20px;
+    }
+    
+    .anim4,
+    .anim5 {
+        opacity: 1;
+        transform: translateX(20px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .anim3 {
+        opacity: 1;
+        transform: translateY(20px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+}
+
+@media (max-width:600px) {
+.rectangle {
+    width: 70%;
+    height: 317px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+
+
+.rectangle img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.title {
+    font-size: 0.5em;
+}
+
+.description .title {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.detail{
+    font-size: 10px;
+    font-weight: 400;
+
+}
+
+
+    h3{
+        font-size: 13px;
+    }
+    .left {
+        width: 100%;
+        float: center;
+        margin-top: -1px;
+        text-align: center;
+    }
+
+    .right {
+        width: 100%;
+        float: center;
+        margin-top: -1px;
+        text-align: center;
+    }
+
+    .fa-brands {
+        color: white;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .rights p {
+        font-size: 8px;
+    }
+
+
+    #About {
+        height: 700px;
+    }
+
+    #About p {
+        font-size: 18px;
+    }
+
+    #About td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    #About td svg,
+    #About td p {
+        margin-top: 10px;
+    }
+
+    #Crosswise {
+        display: none;
+    }
+
+    #About table {
+        padding-right: 25px;
+        padding-left: 25px;
+        background-color: #f1d070;
+        width: 200px;
+        border-radius: 80px;
+        justify-items: center;
+    }
+
+    #About td {
+        text-align: center;
+        padding-top: -15px;
+        padding-bottom: 5px;
+        line-height: 0;
+        /* تعيين قيمة line-height */
+    }
+
+    .anim {
+        opacity: 1;
+        transform: translateY(1px) rotate(0deg);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .anim4,
+    .anim5 {
+        opacity: 1;
+        transform: translateX(1px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .anim3 {
+        opacity: 1;
+        transform: translateY(1px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+}
+
+
+/* الالوان */
+
+.color_1 {
+    background-color: rgb(211, 1, 29);
+}
+
+.color_1_ {
+    background-image: linear-gradient(90deg, rgb(211, 1, 29), #F4A6A0);
+}
+
+.color_2 {
+    background-color: #3A5268;
+}
+
+.color_2_ {
+    background-image: linear-gradient(90deg, #3A5268, #73A2CE);
+}
+
+.color_3 {
+    background-color: #567B63;
+}
+
+.color_3_ {
+    background-image: linear-gradient(90deg, #567B63, #A9DEBB);
+}
+
+.color_4 {
+    background-color: #e0900e;
+}
+
+.color_4_ {
+    background-image: linear-gradient(90deg, #e0900e, #dec3a9);
+}
+
+.color_5 {
+    background-color: #7b5670;
+}
+
+.color_5_ {
+    background-image: linear-gradient(90deg, #7b5670, #dea9cd);
+}
+
+.color_6 {
+    background-color: #101e6c;
+}
+
+.color_6_ {
+    background-image: linear-gradient(90deg, #101e6c, #98a4e6);
+}
+
+.color_7 {
+    background-color: #a53d76;
+}
+
+.color_7_ {
+    background-image: linear-gradient(90deg, #a53d76, #d89abc);
+}
+
+.color_8 {
+    background-color: #127b60;
+}
+
+.color_8_ {
+    background-image: linear-gradient(90deg, #127b60, #a8cbc2);
+}
+
+.color_9 {
+    background-color: #ccd614;
+}
+
+.color_9_ {
+    background-image: linear-gradient(90deg, #ccd614, #d5d892);
+}
+
+.color_10 {
+    background-color: #4f4536;
+}
+
+.color_10_ {
+    background-image: linear-gradient(90deg, #4f4536, #e2d0b5);
+}
+
+.color_11 {
+    background-color: #CEA510;
+}
+
+.color_11_ {
+    background-image: linear-gradient(90deg, #CEA510, #C3BA9A);
+}
+
+.color_12 {
+    background-color: #5c1165;
+}
+
+.color_12_ {
+    background-image: linear-gradient(90deg, #5c1165, #d8b3dc);
+}
+
+.color_14 {
+    background-color: #651141;
+}
+
+.color_14_ {
+    background-image: linear-gradient(90deg, #651141, #dcb3bb);
+}
+
+
+.color_13 {
+    background-color: #5eac79;
+}
+
+.color_13_ {
+    background-image: linear-gradient(90deg, #5eac79, #bae6c9);
+}
+
+@media (max-width:600px) {
+    .left {
+        width: 100%;
+        float: center;
+        margin-top: -1px;
+        text-align: center;
+    }
+
+    .right {
+        width: 100%;
+        float: center;
+        margin-top: -1px;
+        text-align: center;
+    }
+
+    .fa-brands {
+        color: white;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .rights p {
+        font-size: 8px;
+    }
+    .box{
+        width: 90px;
+    }
+}
+@media (max-width:1650px) {}
+
+@media (max-width:750px) {
+    #Explore {
+        margin: 20px auto;
+
+    }
+
+}

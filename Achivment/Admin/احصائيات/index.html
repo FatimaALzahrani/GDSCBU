@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إحصائيات الفعاليات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>إحصائيات الفعاليات</h1>
+        
+    <div id="filter-container">
+        <label for="year-filter">تصفية حسب السنة:</label>
+        <select id="year-filter">
+            <option value="">الكل</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <!-- إضافة المزيد من الخيارات حسب الحاجة -->
+        </select>
+
+        <label for="month-filter">تصفية حسب الشهر:</label>
+        <select id="month-filter">
+            <option value="">الكل</option>
+            <option value="1">يناير</option>
+            <option value="2">فبراير</option>
+            <option value="3">مارس</option>
+            <option value="4">إبريل</option>
+            <option value="5">مايو</option>
+            <option value="6">يونيو</option>
+            <option value="7">يوليو</option>
+            <option value="8">أغسطس</option>
+            <option value="9">سبتمبر</option>
+            <option value="10">أكتوبر</option>
+            <option value="11">نوفمبر</option>
+            <option value="12">ديسمبر</option>
+        </select>
+        <br>
+        
+
+        <label for="start-date">الفترة الزمنية، من:</label>
+<input type="date" id="start-date">
+<label for="end-date">إلى:</label>
+<input type="date" id="end-date">
+<br>
+<button onclick="filterEventsByDate()">تصفية</button>
+<br>
+<div id="total">
+</div>
+    </div>
+<center>
+    <div id="statistics-container" class="boxs">
+
+    </div>
+
+</center>
+<br>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="script.js"></script> <!-- ملف JavaScript الذي يحتوي على الكود الخاص بالإحصائيات -->
+</body>
+</html>
