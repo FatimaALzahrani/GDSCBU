@@ -47,7 +47,7 @@ function displayEvents2(eventsData) {
 
         // يمكنك استخدام الشروط للتحقق من تطابق البحث مع الفعالية
         if((typeDropdown.value==='all') || (typeDropdown.value === 'Class' && event.type === 'دورة')|| (typeDropdown.value === 'BootCamp' && event.type === 'معسكر')|| (typeDropdown.value === 'Workshop' && event.type === 'ورشة عمل')
-            ||(typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')|| (typeDropdown.value === 'فعالية' && event.type === 'فعالية')|| (typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')){
+            ||(typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')|| (typeDropdown.value === 'فعالية' && event.type === 'فعالية')|| (typeDropdown.value === 'سبيس' && event.type === 'سبيس')){
                 var template= getData(event);
                 repeatedCode += template;
                 count++;
@@ -148,7 +148,7 @@ function getData(event) {
 
     template = template.replace(`<div class="time"><h5 class="color_13_">${event.day} ${event.month}</h5></div>`,
         `<div class="time"><h5 class="${tagColorClass}_">${event.day} ${event.month}</h5></div>`);
-        
+
         template = template.replace("سبيس","مساحة");
 
     return template;

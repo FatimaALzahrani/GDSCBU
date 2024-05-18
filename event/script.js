@@ -84,7 +84,7 @@ function displayEvents2(eventsData) {
             if((filterDropdown.value==='all') || (filterDropdown.value === 'this-month'  && (event.monthN == currentMonth && event.year == currentYear)) ||   (filterDropdown.value === 'upcoming' && isEventComing(event)) ||  (filterDropdown.value === 'past' && isEventPast(event))) {
                 // if((locationDropdown.value==='all') || (locationDropdown.value === 'remote' && event.location === 'عن بعد')||locationDropdown.value === 'onsite' && event.location != 'عن بعد'){
                      if((typeDropdown.value==='all') || (typeDropdown.value === 'Class' && event.type === 'دورة')|| (typeDropdown.value === 'BootCamp' && event.type === 'معسكر')|| (typeDropdown.value === 'Workshop' && event.type === 'ورشة عمل')
-                    ||(typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')|| (typeDropdown.value === 'فعالية' && event.type === 'فعالية')|| (typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')){
+                    ||(typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')|| (typeDropdown.value === 'فعالية' && event.type === 'فعالية')|| (typeDropdown.value === 'سبيس' && event.type === 'سبيس')){
                         var template= getData(event);
                         repeatedCode += template;
                         count++;
