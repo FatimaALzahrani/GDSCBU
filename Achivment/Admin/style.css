@@ -108,7 +108,7 @@ nav #icon {
 
     nav #icon {
         display: block;
-        margin-top: -25px;
+        margin-top: -15px;
     }
 
     nav a {
@@ -137,14 +137,14 @@ nav #icon {
 /* تنسيق عام */
 /* 1. التقسيم لنصين */
 .left {
-    width: 50%;
+    width: 60%;
     float: left;
     margin-top: -1px;
     text-align: center;
 }
 
 .right {
-    width: 50%;
+    width: 40%;
     float: right;
     margin-top: -1px;
     text-align: center;
@@ -396,6 +396,12 @@ footer {
 }
 
 @media (max-width:1650px) {
+    .start {
+        margin-top: 50px;
+    }
+    #How {
+        margin-top: 30px;
+    }
     .left {
         width: 50%;
     }

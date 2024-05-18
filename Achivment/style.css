@@ -137,17 +137,19 @@ nav #icon {
 /* تنسيق عام */
 /* 1. التقسيم لنصين */
 .left {
-    width: 50%;
+    width: 70%;
     float: left;
     margin-top: -1px;
     text-align: center;
+    align-items: center;
 }
 
 .right {
-    width: 50%;
+    width: 40%;
     float: right;
     margin-top: -1px;
     text-align: center;
+    align-items: center;
 }
 
 /* الخط والزر */
@@ -257,6 +259,11 @@ p {
 #How {
     order: 3;
     margin-top: 200px;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    margin-right: -40px;
+    margin-left: 40px;
 }
 
 #How h3 {
@@ -593,6 +600,7 @@ footer {
 
     #How {
         margin-top: 100px;
+        margin-right: 0px;
     }
 
     h3 {
@@ -878,12 +886,17 @@ footer {
         width: 90px;
     }
 }
-@media (max-width:1650px) {}
+@media (max-width:1650px) {
 
-@media (max-width:750px) {
+}
+
+@media (max-width:850px) {
     #Explore {
         margin: 20px auto;
 
+    }
+    .start {
+        margin-top: 50px;
     }
 
 }
