@@ -15,7 +15,10 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <title> Class | GCDBU </title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="Event.css" />
+    <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q4QQ3LLRQ"></script>
     <script>
@@ -29,34 +32,28 @@
 </head>
 
 <body>
-    <!-- القائمة -->
+
+
+    <div id="wrapwrap" class=" o_rtl  "> 
+           <!-- القائمة -->
     <nav>
         <!-- <label class="logo">GDSCBU</label> -->
         <ul>
             <li><img src="image.png" width="70px"></li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Home">الرئيسية</a>
-            </li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#About">إحصائيات</a>
-            </li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Explore">تصفح</a>
-            </li>
-            <li class="item"><a
-                    href="https://google-developer-student-club-albaha.on.drv.tw/Google/News/index.html">الأخبار</a>
-            </li>
-            <li class="item"><a
-                    href="https://google-developer-student-club-albaha.on.drv.tw/Google/Event/index.html">الفعاليات</a>
-            </li>
+            <li class="item"><a href="index.html">الرئيسية</a></li>
+            <li class="item"><a href="index.html#About">إحصائيات</a></li>
+            <li class="item"><a href="News.html">الأخبار</a></li>
+            <li class="item"><a href="">الدورات والمعسكرات</a></li>
         </ul>
         <label id="icon">
             <li class="fas fa-bars"></li>
         </label>
     </nav>
-    <div id="wrapwrap" class=" o_rtl  ">
         <main>
             <div id="wrap" class="o_wevent_index">
                 <div
                     class="o_wevent_index_topbar_filters d-flex d-print-none align-items-center justify-content-end flex-wrap gap-2 w-100">
-                    <h2 class="my-0 me-auto pe-sm-4">الدورات والمعسكرات</h2>
+                    <h2 class="my-0 me-auto pe-sm-4" id="top">الدورات والمعسكرات</h2>
                 </div>
                 <div class="container my-3">
 
@@ -66,7 +63,7 @@
                                 <div role="search" class="input-group o_wevent_event_searchbar_form flex-grow-1 ">
                                     <input type="text" id="search-input"
                                         class="search-query form-control oe_search_box border-0 bg-light None"
-                                        placeholder="ابحث عن الدورة...">
+                                        placeholder="ابحث ...">
                                     <button onclick="searchEvent()" type="submit" aria-label="بحث" title="بحث"
                                         class="btn oe_search_button btn-light">
                                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -80,7 +77,7 @@
                     <div class="choi">
                         <div class="dropdown d-lg-block">
                             <select id="filter-dropdown" class="btn btn-light dropdown-toggle">
-                                <option value="all">كل الاوقات</option>
+                                <option value="all">جميع الاوقات</option>
                                 <option value="this-month">هذا الشهر</option>
                                 <option value="upcoming">قادمة</option>
                                 <option value="past">سابقة</option>
@@ -88,13 +85,13 @@
                         </div>
                         <div class="dropdown d-lg-block">
                             <select id="type-dropdown" class="btn btn-light dropdown-toggle">
-                                <option value="all">كل الدورات</option>
-                                <option value="BootCamp">معسكر</option>
-                                <option value="Workshop">ورشة عمل</option>
-                                <option value="Class">دورة / لقاء</option>
-                                <option value="فعالية">فعالية</option>
-                                <option value="مسابقة">مسابقة</option>
-                                <option value="سبيس">مساحة</option>
+                                <option value="all">1- جميع الدورات والمعسكرات</option>
+                                <option value="BootCamp">2- معسكرات</option>
+                                <option value="Workshop">3- ورش عمل</option>
+                                <option value="Class">4- دورات</option>
+                                <option value="فعالية">5- فعاليات</option>
+                                <option value="مسابقة">6- مسابقات</option>
+                                <option value="سبيس">7- لقاءات ومساحات</option>
                             </select>
                         </div>
                         <!-- <div class="dropdown d-lg-block">
@@ -329,14 +326,13 @@
                     </div>
                 </div>
             </div>
-
-    </div>
-    </main>
+        </main>
+        
     <br><br>
     <footer>
         <div class="right2">
             <div class="logo">
-                <img src="google.png" width="300px" />
+                <img src="google1.png" width="300px" />
             </div>
             <div class="rights">
                 <p>جميع الحقوق محفوظة لنادي قوقل للطلبة المطورين بجامعة الباحة</p>
@@ -359,13 +355,17 @@
     </footer>
 
     </div>
+    <a href="#top"><button onclick="topFunction()" id="myBtn" title="الذهاب إلى الأعلى">&#8679;</button></a>
+    </div>
+
+
     <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="Event.js"></script>
 
 </body>
 

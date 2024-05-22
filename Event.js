@@ -1,3 +1,27 @@
+
+// القائمة
+$(document).ready(function () {
+    $('#icon').click(function () {
+        $('ul').toggleClass('show');
+    })
+})
+
+// عند التمرير 20 بكسل من أعلى الصفحة، يظهر الزر
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
+}
+
 // حصل على تاريخ اليوم الحالي
 var today = new Date();
 var currentYear = today.getFullYear();
@@ -139,9 +163,9 @@ function getData(event) {
                         </header>
                         <main class="card-body position-relative d-flex flex-column justify-content-between gap-2 col-12 py-3">
                             <div>
-                                <div class="d-flex flex-wrap gap-2">
-                                <span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_4">${event.keyword}</span>
-                                <span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</span>
+                                <div class="d-flex flex-wrap gap-2 inline">
+                                <div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_4">${event.keyword}</div>
+                                <div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</div>
                                 </div>
                                 <h5 class="card-title mt-2 mb-0 text-truncate">
                                     <span itemprop="name">${event.name}</span>

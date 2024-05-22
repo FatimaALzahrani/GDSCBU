@@ -1,3 +1,11 @@
+
+// القائمة
+$(document).ready(function () {
+    $('#icon').click(function () {
+        $('ul').toggleClass('show');
+    })
+})
+
 // حصل على تاريخ اليوم الحالي
 var today = new Date();
 var currentYear = today.getFullYear();
@@ -69,17 +77,17 @@ function displayEvents2(eventsData) {
 
     for (var eventId in eventsData) {
         var event = eventsData[eventId];
-        // يمكنك استخدام الشروط للتحقق من تطابق البحث مع الفعالية
+        if( event.type !== 'معسكر' && event.type !== 'سبيس' && event.type !== 'فعالية' && event.type !== 'مسابقة' && event.type !== 'ورشة عمل' &&  event.type !== 'دورة'){
         if (searchInput.value === '' || event.name.includes(searchInput.value) || event.type.includes(searchInput.value)|| event.description.includes(searchInput.value)){
             if((filterDropdown.value==='all') || (filterDropdown.value==='this-month' && event.monthN == currentMonth && event.year == currentYear) ||   (filterDropdown.value === 'upcoming' && isEventComing(event)) ||  (filterDropdown.value === 'past' && isEventPast(event))) {
-                if ((typeDropdown.value === 'all') || (typeDropdown.value === 'Teqn' && event.type === 'بودكاست تِقن') || (typeDropdown.value === 'Class' && event.type === 'دورة') || (typeDropdown.value === 'Information' && event.type === 'معلومة الجمعة') || (typeDropdown.value === 'About' && event.type === 'عن النادي')
-                    || (typeDropdown.value === 'معسكر' && event.type === 'معسكر') || (typeDropdown.value === 'سبيس' && event.type === 'سبيس') || (typeDropdown.value === 'فعالية' && event.type === 'فعالية') || (typeDropdown.value === 'مسابقة' && event.type === 'مسابقة')
-                    || (typeDropdown.value === 'ورشة عمل' && event.type === 'ورشة عمل') || (typeDropdown.value === 'مقالة' && event.type === 'مقالة') || (typeDropdown.value === 'يوم عالمي' && event.type === 'يوم عالمي') || (typeDropdown.value === 'تغطية' && event.type === 'تغطية') || (typeDropdown.value === 'تهنئة' && event.type === 'تهنئة')) {
+                if ((typeDropdown.value === 'all') || (typeDropdown.value === 'Teqn' && event.type === 'بودكاست تِقن') || (typeDropdown.value === 'Information' && event.type === 'معلومة الجمعة') || (typeDropdown.value === 'About' && event.type === 'عن النادي')
+                || (typeDropdown.value === 'مقالة' && event.type === 'مقالة') || (typeDropdown.value === 'يوم عالمي' && event.type === 'يوم عالمي') || (typeDropdown.value === 'تغطية' && event.type === 'تغطية') || (typeDropdown.value === 'تهنئة' && event.type === 'تهنئة')) {
                         var template= getData(event);
                     repeatedCode += template;
                     count++;
                 }
             }
+        }
         }
         var myDiv = document.getElementById("NoEvent");
         if (count==0) {
@@ -109,7 +117,7 @@ function isEventPast(event) {
 function getData(event) {
     var template = `
         <div class="col-md-6 col-lg-4 col-xl-3">
-            <a class="text-decoration-none text-dark" href="details/index.html?name=${encodeURIComponent(event.name)}">
+            <a class="text-decoration-none text-dark" href="Newdetails/index.html?name=${encodeURIComponent(event.name)}">
                 <article itemscope="itemscope" itemtype="http://schema.org/Event" class="h-100 card">
                     <div class="h-100 d-flex flex-wrap flex-column">
                         <header class="card-header overflow-hidden bg-secondary p-0 border-0 rounded-0 col-12">
@@ -156,7 +164,7 @@ function getData(event) {
         case "بودكاست تِقن":
             tagColorClass = 'o_tag_color_1';
             break;
-        case "دورة":
+        case "تهنئة":
             tagColorClass = 'o_tag_color_5';
             break;
         case "معلومة الجمعة":
@@ -166,25 +174,25 @@ function getData(event) {
             tagColorClass = 'o_tag_color_4';
             break;
 
-        case "معسكر":
+        case "يوم عالمي":
             tagColorClass = 'o_tag_color_3';
             break;
-        case "سبيس":
+        case "تغطية":
             tagColorClass = 'o_tag_color_8';
             break;
         case "فعالية":
             tagColorClass = 'o_tag_color_9';
             break;
-        case "مسابقة":
+        case "زيارة":
             tagColorClass = 'o_tag_color_2';
             break;
-        case "ورشة عمل":
-            tagColorClass = 'o_tag_color_10';
-            break;
+        // case "تغطية":
+        //     tagColorClass = 'o_tag_color_10';
+        //     break;
         case "مقالة":
             tagColorClass = 'o_tag_color_11';
             break;
-        case "يوم عالمي":
+        case "تنظيمي":
             tagColorClass = 'o_tag_color_6';
             break;
         default:

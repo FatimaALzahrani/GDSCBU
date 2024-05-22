@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
     <link type="text/css" rel="stylesheet" href="style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q4QQ3LLRQ"></script>
+    <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -193,6 +196,21 @@
                                                     <p>${event.Speaker}</p>
                                                 </section>
                                             </div>
+                                            <div class="container d-lg-block">
+
+                                    <div 
+                                        class="d-flex d-lg-block flex-wrap justify-content-between align-items-center pb-3 border-bottom " >
+                                        <div
+                                            class="d-flex flex-wrap justify-content-between align-items-center w-100 mb-3">
+                                            <h4 class="mb-0">&nbsp;<br></h4>
+                                        </div>
+                                        <a href=${event.url} >
+                                        <button id="urls" style=" color: #212529;background-color: #99c0cd;" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#modal_ticket_registration"
+                                            class="btn btn-primary">الرابط</button>
+                                            </a>
+                                    </div>
+                                    </div>
                                         </div>
                                     </div>
 
@@ -301,7 +319,8 @@
                                             <div class="o_wevent_sidebar_block border-bottom pb-3 mb-3">
                                                 <h6 class="o_wevent_sidebar_title text-muted text-uppercase">منظِّم
                                                 </h6>
-                                                <h4>GCDBU</h4>
+                                                <h6>نادي قوقل للطلبة المطورين بجامعة الباحة</h6>
+                                                <p>GCDBU</p>
                                                 <div itemprop="location">
                                                     <address class="o_portal_address mb-0" itemscope="itemscope"
                                                         itemtype="http://schema.org/Organization">
@@ -364,8 +383,12 @@
 
                 eventDetailsContainer.innerHTML = eventDetailsHTML;
                 const speakerSection = document.getElementById('speakerSection');
+                const url_section = document.getElementById('urls');
                 if (!event.Speaker || event.Speaker.trim() === '') {
                     speakerSection.style.display = 'none'; // إخفاء القسم
+                }
+                if (!event.url || event.url.trim() == '' || event.url.trim() == 'null' || event.url.trim() == 'undefined') {
+                    url_section.style.display = 'none'; // إخفاء القسم
                 }
                 const AgendaSection = document.getElementById('AgendaSection');
                 if (!event.Agenda || event.Agenda.trim() === '') {

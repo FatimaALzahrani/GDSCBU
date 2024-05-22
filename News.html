@@ -15,9 +15,12 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <title> News & Events | GCDBU </title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="news.css" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q4QQ3LLRQ"></script>
+    <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -29,86 +32,64 @@
 </head>
 
 <body>
-        <!-- القائمة -->
-        <nav>
-            <!-- <label class="logo">GDSCBU</label> -->
-            <ul>
-                <li><img src="image.png" width="70px"></li>
-                <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Home">الرئيسية</a></li>
-                <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#About">إحصائيات</a></li>
-                <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Explore">تصفح</a></li>
-                <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/News/index.html">الأخبار</a></li>
-                <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/Event/index.html">الفعاليات</a></li>
-            </ul>
-            <label id="icon">
-                <li class="fas fa-bars"></li>
-            </label>
-        </nav>
+
         
     <div id="wrapwrap" class=" o_rtl  ">
-        <main>
+        <main>            <!-- القائمة -->
+            <nav>
+                <!-- <label class="logo">GDSCBU</label> -->
+                <ul>
+                    <li><img src="image.png" width="70px"></li>
+                    <li class="item"><a href="index.html">الرئيسية</a></li>
+                    <li class="item"><a href="index.html#About">إحصائيات</a></li>
+                    <li class="item"><a href="">الأخبار</a></li>
+                    <li class="item"><a href="Event.html">الدورات والمعسكرات</a></li>
+                </ul>
+                <label id="icon">
+                    <li class="fas fa-bars"></li>
+                </label>
+            </nav>
             <div id="wrap" class="o_wevent_index">
                 <div
                 class="o_wevent_index_topbar_filters d-flex d-print-none align-items-center justify-content-end flex-wrap gap-2 w-100">
-                <h2 class="my-0 me-auto pe-sm-4">الأخبار</h2>
+                <h2 class="my-0 me-auto pe-sm-4" id="top">الأخبار</h2>
             </div>
-            <div class="container my-3">
-
+            <div class="container">
                 <div class="sec">
-                    <div class="o_wevent_search d-flex w-100 w-lg-auto">
-                        <div>
-                            <div role="search" class="input-group o_wevent_event_searchbar_form flex-grow-1 ">
-                                <input type="text" id="search-input"
-                                    class="search-query form-control oe_search_box border-0 bg-light None"
-                                    placeholder="ابحث عن خبر...">
-                                <button onclick="searchEvent()" type="submit" aria-label="بحث" title="بحث"
-                                    class="btn oe_search_button btn-light">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
-
-                            </div>
-
+                    
+                    <div >
+                        <div role="search" class="input-group o_wevent_event_searchbar_form flex-grow-1">
+                            <input type="text" id="search-input" class="search-query form-control oe_search_box border-0 bg-light"
+                                placeholder="ابحث...">
+                            <button onclick="searchEvent()" type="submit" aria-label="بحث" title="بحث" class="btn oe_search_button btn-light">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="choi">
+                        <div class="dropdown">
+                            <select id="filter-dropdown" class="btn btn-light dropdown-toggle">
+                                <option value="all">جميع الأوقات</option>
+                                <option value="this-month">هذا الشهر</option>
+                                <option value="upcoming">قادمة</option>
+                                <option value="past">سابقة</option>
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <select id="type-dropdown" class="btn btn-light dropdown-toggle">
+                                <option value="all">جميع الأخبار</option>
+                                <option value="Teqn">بودكاست تِقن</option>
+                                <option value="Information">معلومة الجمعة</option>
+                                <option value="مقالة">مقالات</option>
+                                <option value="تغطية">تغطيات</option>
+                                <option value="تهنئة">تهنئة</option>
+                                <option value="يوم عالمي">أيام عالمية</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="choi">
-                    <div class="dropdown d-lg-block">
-                        <select id="filter-dropdown" class="btn btn-light dropdown-toggle">
-                            <option value="all">كل الاوقات</option>
-                            <option value="this-month">هذا الشهر</option>
-                            <option value="upcoming">قادمة</option>
-                            <option value="past">سابقة</option>
-                        </select>
-                    </div>
-                    <div class="dropdown d-lg-block">
-                        <select id="type-dropdown" class="btn btn-light dropdown-toggle">
-                            <option value="all">كل الأخبار</option>
-                            <option value="Teqn">بودكاست تِقن</option>
-                            <option value="Class">دورات</option>
-                            <option value="Information">معلومة الجمعة</option>
-                            <option value="About">عن النادي</option>
-                            <option value="معسكر">معسكرات</option>
-                            <option value="سبيس">مساحات</option>
-                            <option value="فعالية">فعاليات</option>
-                            <option value="مسابقة">مسابقات</option>
-                            <option value="ورشة عمل">ورش عمل</option>
-                            <option value="مقالة">مقالات</option>
-                            <option value="تغطية">تغطية</option>
-                            <option value="تهنئة">تهنئة</option>
-                            <option value="يوم عالمي">أيام عالمية</option>
-                        </select>
-                    </div>
-                    <!-- <div class="dropdown d-lg-block">
-                    <select id="location-dropdown" class="btn btn-light dropdown-toggle">
-                        <option value="all">حضوري وعن بعد</option>
-                        <option value="onsite">حضوري</option>
-                        <option value="remote">عن بعد</option>
-                    </select>
-                </div>
-                                    </div>
-              -->
-                </div>
             </div>
+            
 
                 <br>
 
@@ -361,6 +342,7 @@
                 </div>
             </div>
         </footer>
+        <a href="#top"><button onclick="topFunction()" id="myBtn" title="الذهاب إلى الأعلى">&#8679;</button></a>
 
     </div>
     <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
@@ -369,7 +351,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="news.js"></script>
 
 </body>
 

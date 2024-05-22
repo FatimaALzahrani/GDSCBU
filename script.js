@@ -1,3 +1,11 @@
+
+// القائمة
+$(document).ready(function () {
+    $('#icon').click(function () {
+        $('ul').toggleClass('show');
+    })
+})
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const image = document.querySelector('.dynamic-img');
     const image2 = document.querySelector('.dinam');
