@@ -3605,3 +3605,29 @@ nav #icon {
     }
 
 }
+
+.img50{
+    height: 50%;
+    width: 50%;
+    align-items: center;
+}
+
+.img35{
+    height: 35%;
+    width: 35%;
+}
+
+
+@media (max-width: 767.98px) {
+    section, .row {
+        height: auto !important;
+    }
+    .img35{
+        height: 100%;
+        width: 100%;
+    }
+    .img50{
+        height: 100%;
+        width: 100%;
+    }
+}
