@@ -3417,7 +3417,7 @@ footer {
 }
 
 .fa-brands {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 25px;
     padding-left: 10px;
 }
@@ -3430,7 +3430,7 @@ footer {
 .rights p {
     font-size: 14px;
     /* margin-top: -80px; */
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     /* margin-bottom: 25px; */
 }
 
@@ -3616,7 +3616,9 @@ nav #icon {
     height: 35%;
     width: 35%;
 }
-
+#finish{
+    color: var(--red);
+}
 
 @media (max-width: 767.98px) {
     section, .row {

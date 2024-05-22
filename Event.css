@@ -3098,7 +3098,7 @@ footer {
 }
 
 .fa-brands {
-    color: rgb(22, 16, 16);
+    color: rgb(255, 255, 255);
     font-size: 25px;
     padding-left: 10px;
 }
@@ -3111,7 +3111,7 @@ footer {
 .rights p {
     font-size: 14px;
     /* margin-top: -80px; */
-    color: rgb(28, 22, 22);
+    color: rgb(255, 255, 255);
     /* margin-bottom: 25px; */
 }
 
@@ -3310,4 +3310,120 @@ nav #icon {
 .inline {
     display: flex;
     justify-content: space-between;
+}
+
+
+/* الالوان */
+
+.color_1 {
+    background-color: rgb(211, 1, 29);
+}
+
+.color_1_ {
+    background-image: linear-gradient(90deg, rgb(211, 1, 29), #F4A6A0);
+}
+
+.color_2 {
+    background-color: #3A5268;
+}
+
+.color_2_ {
+    background-image: linear-gradient(90deg, #3A5268, #73A2CE);
+}
+
+.color_3 {
+    background-color: #567B63;
+}
+
+.color_3_ {
+    background-image: linear-gradient(90deg, #567B63, #A9DEBB);
+}
+
+.color_4 {
+    background-color: #e0900e;
+}
+
+.color_4_ {
+    background-image: linear-gradient(90deg, #e0900e, #dec3a9);
+}
+
+.color_5 {
+    background-color: #7b5670;
+}
+
+.color_5_ {
+    background-image: linear-gradient(90deg, #7b5670, #dea9cd);
+}
+
+.color_6 {
+    background-color: #101e6c;
+}
+
+.color_6_ {
+    background-image: linear-gradient(90deg, #101e6c, #98a4e6);
+}
+
+.color_7 {
+    background-color: #a53d76;
+}
+
+.color_7_ {
+    background-image: linear-gradient(90deg, #a53d76, #d89abc);
+}
+
+.color_8 {
+    background-color: #127b60;
+}
+
+.color_8_ {
+    background-image: linear-gradient(90deg, #127b60, #a8cbc2);
+}
+
+.color_9 {
+    background-color: #ccd614;
+}
+
+.color_9_ {
+    background-image: linear-gradient(90deg, #ccd614, #d5d892);
+}
+
+.color_10 {
+    background-color: #4f4536;
+}
+
+.color_10_ {
+    background-image: linear-gradient(90deg, #4f4536, #e2d0b5);
+}
+
+.color_11 {
+    background-color: #CEA510;
+}
+
+.color_11_ {
+    background-image: linear-gradient(90deg, #CEA510, #C3BA9A);
+}
+
+.color_12 {
+    background-color: #5c1165;
+}
+
+.color_12_ {
+    background-image: linear-gradient(90deg, #5c1165, #d8b3dc);
+}
+
+.color_14 {
+    background-color: #651141;
+}
+
+.color_14_ {
+    background-image: linear-gradient(90deg, #651141, #dcb3bb);
+}
+
+
+.color_13 {
+    background-color: #5eac79;
+}
+
+.color_13_ {
+    background-image: linear-gradient(90deg, #5eac79, #bae6c9);
 }

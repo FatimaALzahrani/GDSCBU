@@ -164,8 +164,8 @@ function getData(event) {
                         <main class="card-body position-relative d-flex flex-column justify-content-between gap-2 col-12 py-3">
                             <div>
                                 <div class="d-flex flex-wrap gap-2 inline">
-                                <div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_4">${event.keyword}</div>
                                 <div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</div>
+                                <div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_4">${event.keyword}</div>
                                 </div>
                                 <h5 class="card-title mt-2 mb-0 text-truncate">
                                     <span itemprop="name">${event.name}</span>
@@ -231,8 +231,8 @@ function getData(event) {
             tagColorClass = 'o_tag_color_6'; 
     }
 
-    template = template.replace(`<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</span>`,
-                                `<span class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 ${tagColorClass}">${event.type}</span>`);
+    template = template.replace(`<div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 o_tag_color_6">${event.type}</div>`,
+                                `<div class="badge mt-3 mt-sm-0 rounded-pill px-2 p-1 ${tagColorClass}">${event.type}</div>`);
                                 template = template.replace("سبيس","مساحة");
 
         return template;
