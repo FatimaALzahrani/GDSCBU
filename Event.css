@@ -1045,29 +1045,29 @@ a.text-dark:hover, a.text-dark:focus {
     color: #07080a !important;
 }
 
- .btn-light {
-    color: #212529;
+.btn-light {
+    color: #ffffff;
     background-color: #8eb9c7;
     border-color: #3F5776;
 }
 
  .btn-light:hover {
     color: #212529;
-    background-color: #f7f2ed;
-    border-color: #f7f2ec;
+    background-color: #3F5776;
+    border-color: #3F5776;
 }
 
  .btn-light:focus {
-    color: #212529;
-    background-color: #f7f2ed;
-    border-color: #f7f2ec;
+    color: #ffffff;
+    background-color: #8eb9c7;
+    border-color: #3F5776;
     box-shadow: 0 0 0 0.25rem rgba(214, 210, 205, 0.5);
 }
 
  .btn-light:active {
-    color: #212529;
-    background-color: #f8f3ee;
-    border-color: #f7f2ec;
+    color: #ffffff;
+    background-color: #3F5776;
+    border-color: #3F5776;
 }
 
  .btn-light:active:focus {
@@ -1075,11 +1075,10 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
  .btn-light:disabled {
-    color: #212529;
-    background-color: #f6f0ea;
-    border-color: #f6f0ea;
+    color: #ffffff;
+    background-color: #3F5776;
+    border-color: #3F5776;
 }
-
 
 @keyframes fa-spin {
     0% {
@@ -3167,9 +3166,15 @@ nav {
     z-index: 1000;
 }
 
+nav img{
+    width: 70px;
+    margin-top: -14px;
+}
+
 .item {
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 /* label.logo{
@@ -3181,7 +3186,7 @@ nav {
 } */
 nav ul {
     float: right;
-    margin-right: 40px;
+    margin-right: 30px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -3194,7 +3199,7 @@ nav li {
 }
 
 nav a {
-    text-decoration: none;
+    text-decoration:wavy;
     color: rgb(0, 0, 0);
     font-size: 38px;
     font-family: Rubik;
@@ -3205,16 +3210,19 @@ nav a {
     justify-content: center;
     align-items: center;
     font-weight: 700;
+    margin-top: 30px;
 }
 
 a.active,
 a:hover {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
+    background-color: #00344f;
     transition: .5s;
+    color: white;
 }
 
 a.active1 {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
     border-radius: 20px;
     transition: .5s;
 }
@@ -3266,13 +3274,10 @@ nav #icon {
 
     nav #icon {
         display: block;
-        margin-top: -25px;
+        /* margin-top: 25px; */
     }
 
-    nav a {
-        font-size: 17px;
-        color: rgb(0, 0, 0);
-    }
+
 
     a.active,
     a:hover {
@@ -3286,6 +3291,8 @@ nav #icon {
     }
 
 }
+
+
 
 #myBtn {
     /* display: none;  */

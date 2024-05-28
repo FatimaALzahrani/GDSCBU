@@ -12,13 +12,16 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="معسكر Devfast">
     <meta property="og:site_name" content="GCDBU">
-    <link type="image/x-icon" rel="shortcut icon" href="google.png">
+    <link type="image/x-icon" rel="shortcut icon" href="image.png">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
     <link type="text/css" rel="stylesheet" href="style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q4QQ3LLRQ"></script>
     <script src="https://kit.fontawesome.com/d5c6986420.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.16/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.16/dist/sweetalert2.min.js"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -31,27 +34,21 @@
 <body>
 
     <div id="wrapwrap" class=" o_rtl  ">    <!-- القائمة -->
-    <nav>
-        <!-- <label class="logo">GDSCBU</label> -->
-        <ul>
-            <li><img src="image.png" width="70px"></li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Home">الرئيسية</a>
-            </li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#About">إحصائيات</a>
-            </li>
-            <li class="item"><a href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Explore">تصفح</a>
-            </li>
-            <li class="item"><a
-                    href="https://google-developer-student-club-albaha.on.drv.tw/Google/News/index.html">الأخبار</a>
-            </li>
-            <li class="item"><a
-                    href="https://google-developer-student-club-albaha.on.drv.tw/Google/Event/index.html">الفعاليات</a>
-            </li>
-        </ul>
-        <label id="icon">
-            <li class="fas fa-bars"></li>
-        </label>
-    </nav>
+        <nav>
+            <!-- <label class="logo">GDSCBU</label> -->
+            <ul>
+                <li><img src="../image.png"></li> 
+                <li class="item"><a href="../index.html#Home">الرئيسية</a></li> 
+                <li class="item"><a href="../index.html#About">إحصائيات</a></li> 
+                <li class="item"><a href="../news.html">الأخبار</a></li>
+                <li class="item"><a href="../event.html">الدورات والمعسكرات</a></li> 
+            </ul>
+            <label id="icon">
+                <li class="fas fa-bars"></li>
+            </label>
+        </nav>
+        
+
         <main>
             <div id="wrap" class="o_wevent_event js_event d-flex flex-column h-100 ">
             </div>
@@ -212,7 +209,7 @@
                                             <h4 class="mb-0">&nbsp;<br></h4>
                                         </div>
                                         <a href=${event.url} >
-                                        <button id="urls" style=" color: #212529;background-color: #99c0cd;" type="button" data-bs-toggle="modal"
+                                        <button id="urls" style=" color: #fff;" type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal_ticket_registration"
                                             class="btn btn-primary">الرابط</button>
                                             </a>
@@ -232,11 +229,9 @@
                                                         <h4 class="mb-0">&nbsp;<br></h4>
                                                     </div>
 
-                                                    <a href=${event.link}>
                                                     <button type="button" data-bs-toggle="modal"
                                                         data-bs-target="#modal_ticket_registration"
-                                                        class="btn btn-primary w-100">تسجيل</button>
-                                                        </a>
+                                                        class="btn btn-primary w-100" id="registerButton"> تسجيل </button>
                                                 </div>
                                             </div>
 
@@ -261,7 +256,7 @@
                                                 (<span>Etc/GMT-3</span>)
 
                                                 <a href="#" role="button" data-bs-toggle="dropdown"
-                                                    class="btn btn-secondary text-bg-secondary dropdown w-100 mt-3" id="bbtn">
+                                                    class="btn btn-primary dropdown w-100 mt-3" id="bbtn">
                                                     <p class="mb-0" id="finish"><i class="fa fa-calendar me-2" id="finish2"></i>إضافة إلى التقويم
                                                     </p>
                                                 </a>
@@ -327,7 +322,7 @@
                                                 <h6 class="o_wevent_sidebar_title text-muted text-uppercase">منظِّم
                                                 </h6>
                                                 <h6>نادي قوقل للطلبة المطورين بجامعة الباحة</h6>
-                                                <p>GCDBU</p>
+                                                <p>GDSCBU</p>
                                                 <div itemprop="location">
                                                     <address class="o_portal_address mb-0" itemscope="itemscope"
                                                         itemtype="http://schema.org/Organization">
@@ -389,7 +384,14 @@
 
                 eventDetailsContainer.innerHTML = eventDetailsHTML;
                 
-
+                document.getElementById('registerButton').addEventListener('click', function () {
+            Swal.fire({
+                title: 'انتهى التسحيل!',
+                text: 'انتهى التسجيل نراكم في فعالياتنا القادمة',
+                icon: 'error',
+                confirmButtonText: 'حسناً'
+            });
+        });
                 const speakerSection = document.getElementById('speakerSection');
                 const url_section = document.getElementById('urls');
                 if (!event.Speaker || event.Speaker.trim() === '') {
@@ -408,6 +410,7 @@
                 const finish2 = document.getElementById('finish2');
              if(isEventPast(event)){
                 finishs.textContent="انتهى التسجيل!";
+                finishs.style.color='#fff'
                 finish2.style.display='none';
                 bbtn.style.backgroundColor='#f0f0f';
              }

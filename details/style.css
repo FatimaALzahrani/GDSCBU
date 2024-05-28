@@ -3475,7 +3475,6 @@ footer {
         margin-left: -50px;
 }
 }
-
 /* القائمة */
 nav {
     height: 80px;
@@ -3486,9 +3485,15 @@ nav {
     z-index: 1000;
 }
 
+nav img{
+    width: 70px;
+    margin-top: -14px;
+}
+
 .item {
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 /* label.logo{
@@ -3513,7 +3518,7 @@ nav li {
 }
 
 nav a {
-    text-decoration: none;
+    text-decoration:wavy;
     color: rgb(0, 0, 0);
     font-size: 38px;
     font-family: Rubik;
@@ -3524,16 +3529,19 @@ nav a {
     justify-content: center;
     align-items: center;
     font-weight: 700;
+    margin-top: 30px;
 }
 
 a.active,
 a:hover {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
+    background-color: #00344f;
     transition: .5s;
+    color: white;
 }
 
 a.active1 {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
     border-radius: 20px;
     transition: .5s;
 }
@@ -3585,13 +3593,10 @@ nav #icon {
 
     nav #icon {
         display: block;
-        margin-top: -25px;
+        /* margin-top: 25px; */
     }
 
-    nav a {
-        font-size: 17px;
-        color: rgb(0, 0, 0);
-    }
+
 
     a.active,
     a:hover {
@@ -3605,6 +3610,7 @@ nav #icon {
     }
 
 }
+
 
 .img50{
     height: 50%;

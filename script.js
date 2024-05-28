@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         'https://i.postimg.cc/hjf0g0m1/bucpc.png',
         'https://i.postimg.cc/KYmnjFQC/image.webp',
         'https://i.postimg.cc/5y4GSZxr/open.png',
-        'https://i.postimg.cc/g2v818QZ/microbit.jpg'
+        'https://i.postimg.cc/G3DLNb1R/image.png'
     ];
 
     const imageUrls2 = [

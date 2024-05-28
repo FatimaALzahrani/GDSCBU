@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="image/x-icon" rel="shortcut icon" href="=google.png">
+    <link type="image/x-icon" rel="shortcut icon" href="image.png">
     <meta property="og:type" content="website">
     <meta property="og:title" content="معسكر Devfast">
     <meta property="og:site_name" content="GCDBU">
@@ -34,27 +34,17 @@
         <nav>
             <!-- <label class="logo">GDSCBU</label> -->
             <ul>
-                <li><img src="image.png" width="70px"></li>
-                <li class="item"><a
-                        href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Home">الرئيسية</a>
-                </li>
-                <li class="item"><a
-                        href="https://google-developer-student-club-albaha.on.drv.tw/Google/#About">إحصائيات</a>
-                </li>
-                <li class="item"><a
-                        href="https://google-developer-student-club-albaha.on.drv.tw/Google/#Explore">تصفح</a>
-                </li>
-                <li class="item"><a
-                        href="https://google-developer-student-club-albaha.on.drv.tw/Google/News/index.html">الأخبار</a>
-                </li>
-                <li class="item"><a
-                        href="https://google-developer-student-club-albaha.on.drv.tw/Google/Event/index.html">الفعاليات</a>
-                </li>
+                <li><img src="../image.png"></li> 
+                <li class="item"><a href="../index.html#Home">الرئيسية</a></li> 
+                <li class="item"><a href="../index.html#About">إحصائيات</a></li> 
+                <li class="item"><a href="../news.html">الأخبار</a></li>
+                <li class="item"><a href="../event.html">الدورات والمعسكرات</a></li> 
             </ul>
             <label id="icon">
                 <li class="fas fa-bars"></li>
             </label>
         </nav>
+        
         <main>
             <div id="wrap" class="o_wevent_event js_event d-flex flex-column h-100 ">
             </div>
@@ -202,50 +192,51 @@
                                                     <div class="o_wevent_sidebar_block border-bottom pb-3 my-3">
                                                      <h6 class="o_wevent_sidebar_title text-muted text-uppercase">تاريخ النشر</h6>
                                                        <div class="d-flex">
-                                                          <h6 class="my-1" datetime="2023-12-24 04:00:00"> ${event.date_start}</h6>
+                                                          <h6 class="my-1" style=" text-align: center; width: 100%;" datetime="2023-12-24 04:00:00"> ${event.date_start}</h6>
                                                      </div>
                                                  </div>
                                                 </section>
                                             </div>
 
                                             <div class="mt-4" itemprop="description">
-                                                <section class="s_text_block">
-                                                    <div class="o_wevent_sidebar_block">
-                                                <h6 class="o_wevent_sidebar_title text-muted text-uppercase">المشاركة
-                                                </h6>                                                        <center>
+    <section class="s_text_block">
+        <div class="o_wevent_sidebar_block">
+            <h6 class="o_wevent_sidebar_title text-muted text-uppercase">شارك أصدقائك!</h6>
+            <center>
+                <div data-snippet="s_share" class="s_share text-start o_no_link_popover o_wevent_sidebar_social mx-n1">
+                    <p>انشر الأخبار وشارك أصدقائك هذه الفعالية الرائعة عبر وسائل التواصل الاجتماعي:</p>
+                    <br>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}"
+                        target="_blank" class="s_share_linkedin o_wevent_social_link">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}"
+                        target="_blank" class="s_share_facebook o_wevent_social_link">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&amp;media={media}&amp;description=${encodeURIComponent(`هل شاهدت آخر أخبار النادي؟ إنه ${event.name} من ${event.type}! أنصحكم بمشاهدته`)}"
+                        target="_blank" class="s_share_pinterest o_wevent_social_link">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                    <a href="https://wa.me/?text=${encodeURIComponent(`هل شاهدت آخر أخبار النادي؟ إنه ${event.name} من ${event.type}! أنصحكم بمشاهدته`)}"
+                        target="_blank" class="s_share_whatsapp o_wevent_social_link">
+                        <i class="fa fa-whatsapp"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`هل شاهدت آخر أخبار النادي؟ إنه ${event.name} من ${event.type}! أنصحكم بمشاهدته`)}&amp;url=${encodeURIComponent(window.location.href)}"
+                        target="_blank" class="s_share_twitter o_wevent_social_link">
+                        <i class="fa fa-x-twitter"></i>
+                    </a>
+                    <a href="mailto:?body=${encodeURIComponent(`هل شاهدت آخر أخبار النادي؟ إنه ${event.name} من ${event.type}! أنصحكم بمشاهدته`)}&amp;subject=نادي قوقل جامعة الباحة"
+                        class="s_share_email o_wevent_social_link">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+            </center>
+        </div>
+    </section>
+</div>
 
-                                                <div data-snippet="s_share"
-                                                    class="s_share text-start o_no_link_popover o_wevent_sidebar_social mx-n1">
-                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}"
-                                                    target="_blank" class="s_share_linkedin o_wevent_social_link">
-                                                    <i class="fa fa-linkedin "></i>
-                                                </a>
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}"
-                                                    target="_blank" class="s_share_facebook o_wevent_social_link">
-                                                    <i class="fa fa-facebook "></i>
-                                                </a>
-                                                <a href="https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&amp;media={media}&amp;description=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}"
-                                                    target="_blank" class="s_share_pinterest o_wevent_social_link">
-                                                    <i class="fa fa-pinterest "></i>
-                                                </a>
-                                                <a href="https://wa.me/?text=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}"
-                                                    target="_blank" class="s_share_whatsapp o_wevent_social_link">
-                                                    <i class="fa fa-whatsapp "></i>
-                                                </a>
-                                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}&amp;url=${encodeURIComponent(window.location.href)}"
-                                                    target="_blank" class="s_share_twitter o_wevent_social_link">
-                                                    <i class="fa fa-twitter "></i>
-                                                </a>
-                                                <a href="mailto:?body=${encodeURIComponent(`هل شاهدت اخر خبار النادي ! انه ${event.name} من ${event.type} ! انصحكم بمشاهدته`)}&amp;subject=نادي قوقل جامعة الباحة"
-                                                    class="s_share_email o_wevent_social_link">
-                                                    <i class="fa fa-envelope "></i>
-                                               </a>
-
-                                                </div>
-                                                </center>
-                                                    </div>
-                                                </section>
-                                            </div>
+                                              
                                         </div>
                                     </div>                                           
                                 </div>
@@ -305,7 +296,7 @@
                         tagColorClass = 'o_tag_color_0';
                 }
                 url0.style.backgroundColor = tagColorClass;
-                footer0.style.backgroundColor = tagColorClass;
+                // footer0.style.backgroundColor = tagColorClass;
                 if(event.type=='يوم عالمي' || event.type=='مقالة'){
                     url0.style.color='black';
                     pra.style.color='black';
