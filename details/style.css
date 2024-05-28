@@ -3475,6 +3475,7 @@ footer {
         margin-left: -50px;
 }
 }
+
 /* القائمة */
 nav {
     height: 80px;
@@ -3612,6 +3613,7 @@ nav #icon {
 }
 
 
+
 .img50{
     height: 50%;
     width: 50%;
@@ -3637,5 +3639,50 @@ nav #icon {
     .img50{
         height: 100%;
         width: 100%;
+    }
+}
+
+#footer{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #6780a1;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 10px;
+}
+.social-links{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: -10px;
+}
+#logo0 img{
+    height: 50px;
+    margin: 10px;
+}
+
+.social-links a:hover{
+    background-color: #6780a1;
+    color: #b6babc;
+    border: #6780a1;
+}
+#copyright {
+    font-size: 18px;
+}
+@media (max-width: 800px) {
+    #copyright{
+        font-size: 12px;
+    }
+    .social-links a{
+        font-size: 18px;
+    }
+    #logo0 img{
+        width: 80%;
+        height: auto;
+    }
+    .grid-container1{
+        display: block;
     }
 }

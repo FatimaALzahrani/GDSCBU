@@ -3322,3 +3322,21 @@ nav #icon {
     color: #b6babc;
     border: #6780a1;
 }
+#copyright {
+    font-size: 18px;
+}
+@media (max-width: 800px) {
+    #copyright{
+        font-size: 12px;
+    }
+    .social-links a{
+        font-size: 18px;
+    }
+    #logo0 img{
+        width: 80%;
+        height: auto;
+    }
+    .grid-container1{
+        display: block;
+    }
+}

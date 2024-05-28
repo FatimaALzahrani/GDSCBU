@@ -42,46 +42,119 @@ document.addEventListener('DOMContentLoaded', (event) => {
         image.src = imageUrls[currentIndex];
         image2.src = imageUrls2[currentIndex2];
     }, 2000); // Change image every 5 seconds
-});
+    const stats = [
+        { target: 1500, label: 'مُتابع' },
+        { target: 8300, label: 'مستفيد' },
+        { target: 3000, label: 'متدرب ومتدربة' },
+        { target: 40, label: 'دورة' },
+        { target: 220, label: 'منشور' },
+        { target: 630000, label: 'مشاهدة المنشورات' },
+        { target: 55550, label: 'مشاركة' },
+        { target: 1200, label: 'إعادة تغريد' },
+        { target: 4000, label: 'إعجاب' },
+        { target: 43000, label: 'مشاهدة وسائط '},
+        { target: 4450, label: 'مشاهدة يوتيوب' }
+    ];
+    
+    
+    function updateStats() {
+        const elements = [];
+        const labelElements = [];
+    
+        // جمع العناصر وعناصر الوسم المقابلة
+        for (let i = 1; i <= 4; i++) {
+            const element = document.getElementById(`stat${i}`);
+            const labelElement = document.getElementById(`stat${i}${i}`);
+            if (element && labelElement) {
+                elements.push(element);
+                labelElements.push(labelElement);
+            } else {
+                console.error(`Element with id "stat${i}" or "stat${i}${i}" not found.`);
+            }
+        }
+    
+        // تحديث العناصر
+        for (let i = 0; i < 4; i++) {
+            const index = (currentIndex + i) % stats.length;
+            elements[i].setAttribute('data-target', stats[index].target);
+            elements[i].innerText = '0'; // إعادة تعيين النص إلى الصفر مع علامة +
+            labelElements[i].textContent = stats[index].label;
+        }
+    
+        // تحديث الفهرس للمرة القادمة
+        currentIndex = (currentIndex + 4) % stats.length;
+    
+        // تنفيذ animateCounter على جميع العناصر
+        animateCounter(elements);
+    }
+    
+    function animateCounter(elements) {
+        elements.forEach(element => {
+            const target = +element.getAttribute('data-target');
+            let count = 0;
+            const increment = target / 200;
+    
+            function updateCount() {
+                count += increment;
+                if (count < target) {
+                    element.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 10);
+                } else {
+                    element.innerText = target ;
+                }
+            }
+    
+            updateCount();
+        });
+    }
+    
+    // تحديث الإحصائيات للمرة الأولى
+    updateStats();
+    
+    // تحديث الإحصائيات كل 5 ثواني
+    setInterval(updateStats, 8000);
+
+    
+});    
 
 // تحديد العناصر التي تحتوي على الكلاس '.counter'
-const counters = document.querySelectorAll('.counter');
+// const counters = document.querySelectorAll('.counter');
 
-// إعداد مراقب التفاعل
-const observer2 = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        // إذا كان العنصر مرئيًا
-        if (entry.isIntersecting) {
-            // تنفيذ الكود لكل عنصر
-            const targetCounter = entry.target;
-            targetCounter.innerText = '0';
+// // إعداد مراقب التفاعل
+// const observer2 = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//         // إذا كان العنصر مرئيًا
+//         if (entry.isIntersecting) {
+//             // تنفيذ الكود لكل عنصر
+//             const targetCounter = entry.target;
+//             targetCounter.innerText = '0';
 
-            const updateCounter = () => {
-                const target = +targetCounter.getAttribute('data-target');
-                const current = +targetCounter.innerText;
+//             const updateCounter = () => {
+//                 const target = +targetCounter.getAttribute('data-target');
+//                 const current = +targetCounter.innerText;
 
-                const increment = target / 400;
+//                 const increment = target / 400;
 
-                if (current < target) {
-                    targetCounter.innerText = `${Math.ceil(current + increment)}`;
-                    setTimeout(updateCounter, 1);
-                } else {
-                    targetCounter.innerText = target;
-                }
-            };
+//                 if (current < target) {
+//                     targetCounter.innerText = `${Math.ceil(current + increment)}`;
+//                     setTimeout(updateCounter, 1);
+//                 } else {
+//                     targetCounter.innerText = target;
+//                 }
+//             };
 
-            updateCounter();
+//             updateCounter();
             
-            // إيقاف مراقبة العنصر بعد تنفيذ الكود
-            observer2.unobserve(targetCounter);
-        }
-    });
-});
+//             // إيقاف مراقبة العنصر بعد تنفيذ الكود
+//             observer2.unobserve(targetCounter);
+//         }
+//     });
+// });
 
 // قم بربط مراقب التفاعل بكل عنصر من العناصر
-counters.forEach(counter => {
-    observer2.observe(counter);
-});
+// counters.forEach(counter => {
+//     observer2.observe(counter);
+// });
 
 const animatedElements = document.querySelectorAll('.anim');
 

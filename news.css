@@ -3189,15 +3189,20 @@ nav {
     height: 80px;
     width: 100%;
     display: flex;
-    margin-right: -15px;
     position: relative;
     /* تأكد من تحديد العنصر الأساسي بنوعية position: relative */
     z-index: 1000;
 }
 
+nav img{
+    width: 70px;
+    margin-top: -14px;
+}
+
 .item {
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 /* label.logo{
@@ -3222,7 +3227,7 @@ nav li {
 }
 
 nav a {
-    text-decoration: none;
+    text-decoration:wavy;
     color: rgb(0, 0, 0);
     font-size: 38px;
     font-family: Rubik;
@@ -3233,16 +3238,19 @@ nav a {
     justify-content: center;
     align-items: center;
     font-weight: 700;
+    margin-top: 30px;
 }
 
 a.active,
 a:hover {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
+    background-color: #00344f;
     transition: .5s;
+    color: white;
 }
 
 a.active1 {
-    border: 1px solid rgb(255, 251, 217);
+    border: 1px solid rgb(43, 16, 123);
     border-radius: 20px;
     transition: .5s;
 }
@@ -3266,16 +3274,12 @@ nav #icon {
     nav a {
         font-size: 17px;
     }
-    .dropdown ,.o_wevent_event_searchbar_form {
-        margin-top: 10px;
-    }
 }
 
 @media (max-width:600px) {
-    nav img {
+    nav img{
         width: 80px;
     }
-
     nav ul {
         position: fixed;
         width: 100%;
@@ -3298,13 +3302,10 @@ nav #icon {
 
     nav #icon {
         display: block;
-        margin-top: -25px;
+        /* margin-top: 25px; */
     }
 
-    nav a {
-        font-size: 17px;
-        color: rgb(0, 0, 0);
-    }
+
 
     a.active,
     a:hover {
@@ -3318,6 +3319,7 @@ nav #icon {
     }
 
 }
+
 
 #myBtn {
     /* display: none;  */
@@ -3507,4 +3509,51 @@ nav #icon {
 
 .color_13_ {
     background-image: linear-gradient(90deg, #5eac79, #bae6c9);
+}
+
+
+
+#footer{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #6780a1;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 10px;
+}
+.social-links{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: -10px;
+}
+#logo0 img{
+    height: 50px;
+    margin: 10px;
+}
+
+.social-links a:hover{
+    background-color: #6780a1;
+    color: #b6babc;
+    border: #6780a1;
+}
+#copyright {
+    font-size: 18px;
+}
+@media (max-width: 800px) {
+    #copyright{
+        font-size: 12px;
+    }
+    .social-links a{
+        font-size: 18px;
+    }
+    #logo0 img{
+        width: 80%;
+        height: auto;
+    }
+    .grid-container1{
+        display: block;
+    }
 }

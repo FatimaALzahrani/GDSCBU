@@ -3186,7 +3186,7 @@ nav img{
 } */
 nav ul {
     float: right;
-    margin-right: 30px;
+    margin-right: 40px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -3291,7 +3291,6 @@ nav #icon {
     }
 
 }
-
 
 
 #myBtn {
@@ -3433,4 +3432,48 @@ nav #icon {
 
 .color_13_ {
     background-image: linear-gradient(90deg, #5eac79, #bae6c9);
+}
+
+#footer{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background-color: #6780a1;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 10px;
+}
+.social-links{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+#logo0 img{
+    height: 50px;
+    margin: 10px;
+}
+
+.social-links a:hover{
+    background-color: #6780a1;
+    color: #b6babc;
+    border: #6780a1;
+}
+#copyright {
+    font-size: 18px;
+}
+@media (max-width: 800px) {
+    #copyright{
+        font-size: 12px;
+    }
+    .social-links a{
+        font-size: 18px;
+    }
+    #logo0 img{
+        width: 80%;
+        height: auto;
+    }
+    .grid-container1{
+        display: block;
+    }
 }
