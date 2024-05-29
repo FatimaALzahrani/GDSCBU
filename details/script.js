@@ -280,7 +280,7 @@ $(document).ready(function () {
                                          </a>
                                          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في ${event.name} ! انصحكم بالانضمام لها`)}&amp;url=${encodeURIComponent(window.location.href)}"
                                              target="_blank" class="s_share_twitter o_wevent_social_link">
-                                             <i class="fa fa-twitter "></i>
+                                             <i class="fa fa-x-twitter "></i>
                                          </a>
                                          <a href="mailto:?body=${encodeURIComponent(`لقد سجلت مع نادي قوقل للطلبة المطورين بجامعة الباحة في ${event.name} ! انصحكم بالانضمام لها`)}&amp;subject=نادي قوقل جامعة الباحة"
                                              class="s_share_email o_wevent_social_link">

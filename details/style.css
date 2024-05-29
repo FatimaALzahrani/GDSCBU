@@ -2486,50 +2486,72 @@ p {
 
  .s_share:not(.no_icon_color) .s_share_facebook, .s_share:not(.no_icon_color) .s_share_facebook:hover, .s_share:not(.no_icon_color) .s_share_facebook:focus {
     color: #3B5999 !important;
+    text-decoration: none;
 }
 
  .s_share:not(.no_icon_color) a.s_share_facebook:hover, .s_share:not(.no_icon_color) a.s_share_facebook:focus {
     color: #1f2e4f !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) .s_social_media_twitter, .s_social_media:not(.no_icon_color) .s_social_media_twitter:hover, .s_social_media:not(.no_icon_color) .s_social_media_twitter:focus, .s_share:not(.no_icon_color) .s_share_twitter, .s_share:not(.no_icon_color) .s_share_twitter:hover, .s_share:not(.no_icon_color) .s_share_twitter:focus {
-    color: #55ACEE !important;
+    color: #384148 !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) a.s_social_media_twitter:hover, .s_share:not(.no_icon_color) a.s_share_twitter:hover, .s_social_media:not(.no_icon_color) a.s_social_media_twitter:focus, .s_share:not(.no_icon_color) a.s_share_twitter:focus {
-    color: #147bc9 !important;
+    color: #000000 !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) .s_social_media_linkedin, .s_social_media:not(.no_icon_color) .s_social_media_linkedin:hover, .s_social_media:not(.no_icon_color) .s_social_media_linkedin:focus, .s_share:not(.no_icon_color) .s_share_linkedin, .s_share:not(.no_icon_color) .s_share_linkedin:hover, .s_share:not(.no_icon_color) .s_share_linkedin:focus {
     color: #0077B5 !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) a.s_social_media_linkedin:hover, .s_share:not(.no_icon_color) a.s_share_linkedin:hover, .s_social_media:not(.no_icon_color) a.s_social_media_linkedin:focus, .s_share:not(.no_icon_color) a.s_share_linkedin:focus {
     color: #00344f !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) .s_social_media_youtube, .s_social_media:not(.no_icon_color) .s_social_media_youtube:hover, .s_social_media:not(.no_icon_color) .s_social_media_youtube:focus {
     color: #ff0000 !important;
+    text-decoration: none;
 }
 
  .s_social_media:not(.no_icon_color) a.s_social_media_youtube:hover, .s_social_media:not(.no_icon_color) a.s_social_media_youtube:focus {
     color: #990000 !important;
+    text-decoration: none;
 }
 
  .s_share:not(.no_icon_color) .s_share_whatsapp, .s_share:not(.no_icon_color) .s_share_whatsapp:hover, .s_share:not(.no_icon_color) .s_share_whatsapp:focus {
     color: #25d366 !important;
+    text-decoration: none;
 }
 
  .s_share:not(.no_icon_color) a.s_share_whatsapp:hover, .s_share:not(.no_icon_color) a.s_share_whatsapp:focus {
     color: #167c3c !important;
+    text-decoration: none;
 }
 
  .s_share:not(.no_icon_color) .s_share_pinterest, .s_share:not(.no_icon_color) .s_share_pinterest:hover, .s_share:not(.no_icon_color) .s_share_pinterest:focus {
     color: #C8232C !important;
+    text-decoration: none;
 }
 
  .s_share:not(.no_icon_color) a.s_share_pinterest:hover, .s_share:not(.no_icon_color) a.s_share_pinterest:focus {
     color: #711419 !important;
+    text-decoration: none;
+}
+
+.s_share:not(.no_icon_color) .s_share_email, .s_share:not(.no_icon_color) .s_share_email:hover, .s_share:not(.no_icon_color) .s_share_email:focus {
+    color: #494e7e !important;
+    text-decoration: none;
+}
+
+ .s_share:not(.no_icon_color) a.s_share_email:hover, .s_share:not(.no_icon_color) a.s_share_email:focus {
+    color: #605e5e !important;
+    text-decoration: none;
 }
 
 .o_record_cover_container {
