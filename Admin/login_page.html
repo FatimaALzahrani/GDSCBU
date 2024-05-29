@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل دخول</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,700,700i&display=swap"); 
+        body {
+            font-family: Rubik;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #login-container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Rubik;
+        }
+        button {
+          font-family: Rubik;
+            padding: 10px;
+            background-color: #102d4c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #418ad7;
+        }
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form id="login-form">
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" required>
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <div id="error-message"></div>
+    </div>    
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+    <script type="text/javascript" defer="defer" src="login_page.js"></script>
+</body>
+</html>

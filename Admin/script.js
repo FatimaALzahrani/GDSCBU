@@ -133,34 +133,29 @@ const animatedElements = document.querySelectorAll('.anim');
          animatedElements3.forEach(element => {
              observer3.observe(element);
          });
-const sliderContainer = document.querySelector('.slider-container')
-const slideRight = document.querySelector('.right-slide')
-const slideLeft = document.querySelector('.left-slide')
-const upButton = document.querySelector('.up-button')
-const downButton = document.querySelector('.down-button')
-const slidesLength = slideRight.querySelectorAll('div').length
 
-let activeSlideIndex = 0
 
-slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
-
-upButton.addEventListener('click', () => changeSlide('up'))
-downButton.addEventListener('click', () => changeSlide('down'))
-
-const changeSlide = (direction) => {
-    const sliderHeight = sliderContainer.clientHeight
-    if(direction === 'up') {
-        activeSlideIndex++
-        if(activeSlideIndex > slidesLength - 1) {
-            activeSlideIndex = 0
-        }
-    } else if(direction === 'down') {
-        activeSlideIndex--
-        if(activeSlideIndex < 0) {
-            activeSlideIndex = slidesLength - 1
-        }
-    }
-
-    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
-    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
-}
+           const firebaseConfig = {
+             apiKey: "AIzaSyCayCRh3KS2ovE317Q3hPigFQx7MV9wptc",
+             authDomain: "gdsc-12.firebaseapp.com",
+             projectId: "gdsc-12",
+             storageBucket: "gdsc-12.appspot.com",
+             messagingSenderId: "190878539822",
+             appId: "1:190878539822:web:1bf4d8550c05ab08987fbf",
+             measurementId: "G-ZRDX984JGY"
+           };
+       
+           // Initialize Firebase
+           firebase.initializeApp(firebaseConfig);
+       
+           document.addEventListener('DOMContentLoaded', () => {
+             firebase.auth().onAuthStateChanged((user) => {
+               if (!user) {
+                 // User is not signed in, redirect to login page
+                 window.location.href = 'login_page.html'; 
+               } else {
+                 // User is signed in, display protected content
+                 document.getElementById('protected-content').style.display = 'block';
+               }
+             });
+           });

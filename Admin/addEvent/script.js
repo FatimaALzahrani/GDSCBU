@@ -11,6 +11,10 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged((user) => {
+    console.log( user.uid);
+});
+
 // Reference to the 'events' node in Firebase Realtime Database
 var eventsRef = firebase.database().ref('events');
 var newsRef = firebase.database().ref('news');

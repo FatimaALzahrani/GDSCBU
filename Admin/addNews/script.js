@@ -14,6 +14,9 @@ firebase.initializeApp(firebaseConfig);
 // Reference to the 'events' node in Firebase Realtime Database
 var newsRef = firebase.database().ref('news');
 
+firebase.auth().onAuthStateChanged((user) => {
+    console.log( user.uid);
+});
 
 function addEvent() {
     // Get form values
