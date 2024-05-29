@@ -2551,7 +2551,7 @@ p {
 
  .s_share:not(.no_icon_color) a.s_share_email:hover, .s_share:not(.no_icon_color) a.s_share_email:focus {
     color: #605e5e !important;
-    text-decoration: none;
+    text-decoration: none ;
 }
 
 .o_record_cover_container {
