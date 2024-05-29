@@ -48,11 +48,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         { target: 3000, label: 'متدرب ومتدربة' },
         { target: 40, label: 'دورة' },
         { target: 220, label: 'منشور' },
-        { target: 630000, label: 'مشاهدة المنشورات' },
+        { target: 630000, label: 'مشاهدات إكس' },
         { target: 55550, label: 'مشاركة' },
         { target: 1200, label: 'إعادة تغريد' },
         { target: 4000, label: 'إعجاب' },
         { target: 43000, label: 'مشاهدة وسائط '},
+        { target: 8600, label: 'مشاركة الوسائط '},
         { target: 4450, label: 'مشاهدة يوتيوب' }
     ];
     
