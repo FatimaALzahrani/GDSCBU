@@ -6,6 +6,17 @@ $(document).ready(function () {
     })
 })
 
+    // const texts = ["الإبداع", "الإبتكار", "التميُز", "التقنية"];
+    // const container = document.querySelector('.containertext');
+
+    // texts.forEach((text, index) => {
+    //     const span = document.createElement('span');
+    //     span.classList.add('animation-text');
+    //     span.textContent = text;
+    //     span.style.animationDelay = `${index * 2}s`;
+    //     container.appendChild(span);
+    // });
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const image = document.querySelector('.dynamic-img');
     const image2 = document.querySelector('.dinam');
